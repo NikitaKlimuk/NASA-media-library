@@ -1,6 +1,12 @@
 import React from "react";
-import logo from "./logo.svg";
+import {
+  Routes,
+  // , Route
+} from "react-router-dom";
 import "./App.scss";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.js";
+import Navbar from "./components/navbar";
 
 function App() {
   const apiUrl = "https://images-api.nasa.gov/search?q=space";
@@ -16,11 +22,13 @@ function App() {
     });
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-      </header>
-    </div>
+    <section className="App">
+      <Navbar />
+      <main className="main">
+        <Routes>{/* <Route path="/" element={<MainPage />} /> */}</Routes>
+      </main>
+      {/* <Footer /> */}
+    </section>
   );
 }
 
