@@ -1,0 +1,84 @@
+@import "../../styles/variables.scss";
+
+.searchPage {
+  &__search {
+    height: 606px;
+    background-image: url("../../assets/background/mainBg.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    &-title {
+      padding-top: 76px;
+      max-width: 820px;
+      margin: 0 auto;
+      font-weight: 600;
+      font-size: 60px;
+      line-height: 60px;
+      text-align: center;
+      color: $whiteText;
+    }
+    &-descr {
+      padding-top: 28px;
+      max-width: 690px;
+      margin: 0 auto;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 24px;
+      text-align: center;
+      color: $whiteText;
+    }
+    &-input {
+      margin-top: 76px;
+      display: flex;
+      justify-content: center;
+      height: 60px;
+      input {
+        width: 480px;
+        height: inherit;
+        background: transparent;
+        border-radius: 0.375rem 0 0 0.375rem;
+        color: $whiteText;
+        border-width: 2px;
+        border-style: solid;
+        border-color: $whiteText;
+        padding-left: 17px;
+      }
+      input::placeholder {
+        color: $textPlaceholder;
+      }
+      button {
+        width: 163px;
+        height: inherit;
+        background: $whiteText;
+        border-radius: 0px 8px 8px 0px;
+        font-weight: 400;
+        font-size: 24px;
+        line-height: 36px;
+        text-align: center;
+        color: $black;
+        border-width: 2px;
+        border-style: solid;
+        border-color: $whiteText;
+      }
+    }
+    &-topics {
+      display: flex;
+      justify-content: center;
+      margin-top: 80px;
+      gap: 16px;
+      h5 {
+        font-size: 16px;
+        line-height: 26px;
+        text-align: center;
+        color: #acacac;
+        display: flex;
+        align-items: center;
+      }
+      button {
+        padding: 8px 20px;
+        border: none;
+        border-radius: 4px;
+        background: $btnBg;
+      }
+    }
+  }
+}

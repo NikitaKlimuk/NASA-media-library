@@ -35,10 +35,10 @@ const LanguageToggler = () => {
         }}
       >
         <option className="toggler__select-GB" value="en">
-          🇬🇧 English
+          English 🇬🇧
         </option>
         <option className="toggler__select-option" value="pl">
-          🇵🇱 Polish
+          Polish 🇵🇱
         </option>
       </select>
     </div>
