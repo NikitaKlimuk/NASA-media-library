@@ -1,6 +1,9 @@
 // import { v4 as uuidv4 } from "uuid";
 import { useForm, SubmitHandler } from "react-hook-form";
+import filterIcon from "../../assets/icons/filters.svg";
+import sortIcon from "../../assets/icons/sort.svg";
 import "./styles.scss";
+import SelectComponent from "../../components/select";
 
 const SearchPage = () => {
   type Inputs = {
@@ -15,6 +18,18 @@ const SearchPage = () => {
     formState: { errors },
   } = useForm<Inputs>();
   const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data);
+
+  const options = [
+    { value: "", label: "All Topics" },
+    { value: "Mars", label: "Mars" },
+    { value: "Solar System", label: "Solar System" },
+    { value: "Earth", label: "Earth" },
+    { value: "Stars and Galaxies", label: "Stars and Galaxies" },
+    { value: "Robotics", label: "Robotics" },
+    { value: "Technology", label: "Technology" },
+    { value: "Asteroids and Comets", label: "Asteroids and Comets" },
+    { value: "Climate Change", label: "Climate Change" },
+  ];
 
   return (
     <div className="searchPage">
@@ -46,8 +61,31 @@ const SearchPage = () => {
             <button type="button">Mars</button>
           </div>
         </section>
-        <section className="searchPage__filters"></section>
-        <section className="searchPage__results"></section>
+        <div className="container">
+          <section className="searchPage__filters">
+            <div className="searchPage__filters-header">
+              <button type="button" id="filters">
+                <img src={filterIcon} alt="Filter icon" />
+                Filtres
+              </button>
+              <button type="button" id="latest">
+                Latest
+                <img src={sortIcon} alt="Filter icon" />
+              </button>
+            </div>
+            <div className="searchPage__filters-wrapper">
+              <div className="searchPage__filters-wrapper__select">
+                <SelectComponent
+                  register={register}
+                  name="topics"
+                  options={options}
+                  title="Topic"
+                />
+              </div>
+            </div>
+          </section>
+          <section className="searchPage__results"></section>
+        </div>
       </form>
     </div>
   );
