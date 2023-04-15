@@ -2,9 +2,9 @@
 
 .navbar {
   height: 80px;
-  background: $navbarBg;
+  background-color: $black;
   &-brand {
-    padding-left: 40px;
+    padding-left: $pad60;
   }
   &__container {
     display: flex;
@@ -14,13 +14,22 @@
       gap: 38px;
     }
   }
+  .nav-link.active {
+    color: $whiteText;
+  }
+  .nav-link.disabled {
+    color: $whiteTextDisabled;
+  }
   .active::after {
     content: "";
     display: block;
     width: 100%;
     height: 2px;
-    background-color: $black;
+    background-color: $whiteText;
     text-decoration: underline;
-    margin-top: 5px;
+    margin-top: $mar5;
+  }
+  &__lang-toggler {
+    padding-right: $pad60;
   }
 }

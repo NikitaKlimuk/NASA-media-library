@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
+import "./styles.scss";
 
 const LanguageToggler = () => {
   const { i18n } = useTranslation();
@@ -20,9 +21,12 @@ const LanguageToggler = () => {
   }, [currentLanguage, i18n]);
 
   return (
-    <div>
-      <label htmlFor="language">Language:</label>
+    <div className="toggler">
+      <label className="toggler__label" htmlFor="language">
+        Language:
+      </label>
       <select
+        className="toggler__select"
         id="language"
         value={currentLanguage}
         onChange={(e) => {
@@ -30,8 +34,12 @@ const LanguageToggler = () => {
           handleLanguageChange(e);
         }}
       >
-        <option value="en">English</option>
-        <option value="pl">Polish</option>
+        <option className="toggler__select-GB" value="en">
+          🇬🇧 English
+        </option>
+        <option className="toggler__select-option" value="pl">
+          🇵🇱 Polish
+        </option>
       </select>
     </div>
   );

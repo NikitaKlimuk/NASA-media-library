@@ -25,7 +25,7 @@ function App() {
     <section className="App">
       <Navbar />
       <main className="main">
-        <Routes>{/* <Route path="/" element={<MainPage />} /> */}</Routes>
+        <Routes>{/* <Route path="/" element={<SearchPage />} /> */}</Routes>
       </main>
       {/* <Footer /> */}
     </section>

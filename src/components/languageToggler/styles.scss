@@ -1,0 +1,19 @@
+@import "../../styles/variables.scss";
+
+.toggler {
+  &__label {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: $whiteText;
+    padding-right: 10px;
+  }
+  &__select {
+    background-color: $black;
+    border: none;
+    color: $whiteText;
+    &-GB {
+      background-image: url();
+    }
+  }
+}
