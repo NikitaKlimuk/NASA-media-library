@@ -4,6 +4,9 @@ import filterIcon from "../../assets/icons/filters.svg";
 import sortIcon from "../../assets/icons/sort.svg";
 import "./styles.scss";
 import SelectComponent from "../../components/select";
+import DatePicker from "react-datepicker";
+import { useState } from "react";
+import "react-datepicker/dist/react-datepicker.css";
 
 const SearchPage = () => {
   type Inputs = {
@@ -18,6 +21,9 @@ const SearchPage = () => {
     formState: { errors },
   } = useForm<Inputs>();
   const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data);
+
+  const [startDate, setStartDate] = useState<Date | null>();
+  const [endDate, setEndDate] = useState<Date | null>();
 
   const options = [
     { value: "", label: "All Topics" },
@@ -81,6 +87,42 @@ const SearchPage = () => {
                   options={options}
                   title="Topic"
                 />
+              </div>
+              <div className="yearPicker">
+                From the year
+                <DatePicker
+                  dateFormat="yyyy"
+                  selected={startDate}
+                  onChange={(date: Date | null) => date && setStartDate(date)}
+                  selectsStart
+                  showYearPicker
+                  startDate={startDate}
+                  endDate={endDate}
+                  placeholderText="Click to select a year"
+                  maxDate={new Date()}
+                  yearItemNumber={12}
+                />
+              </div>
+              <div className="yearPicker">
+                Under a year
+                <DatePicker
+                  dateFormat="yyyy"
+                  selected={endDate}
+                  onChange={(date: Date | null) => date && setEndDate(date)}
+                  selectsEnd
+                  showYearPicker
+                  startDate={startDate}
+                  endDate={endDate}
+                  minDate={startDate}
+                  placeholderText="Click to select a year"
+                  maxDate={new Date()}
+                  yearItemNumber={12}
+                />
+              </div>
+              <div className="d-flex align-items-end">
+                <button className="filters-submit-btn" type="button">
+                  Search
+                </button>
               </div>
             </div>
           </section>

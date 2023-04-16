@@ -23,10 +23,21 @@ const SelectComponent = ({
 }: SelectProps) => {
   return (
     <div className="select">
-      <label htmlFor={name}>{title}</label>
-      <select id={name} {...register(name)} {...rest}>
+      <label className="select__title" htmlFor={name}>
+        {title}
+      </label>
+      <select
+        className="select__select"
+        id={name}
+        {...register(name)}
+        {...rest}
+      >
         {options.map((option) => (
-          <option key={option.value} value={option.value}>
+          <option
+            className="select__select-option"
+            key={option.value}
+            value={option.value}
+          >
             {option.label}
           </option>
         ))}

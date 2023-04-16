@@ -84,13 +84,13 @@
   &__filters {
     padding-top: 24px;
     &-header {
-      height: 90px;
+      height: 42px;
       display: flex;
       justify-content: space-between;
       align-items: center;
       button {
         height: 42px;
-        border: 2px solid #f4f4f4;
+        border: 1px solid $whiteTextDisabled;
         border-radius: 4px;
         padding: 8px 16px;
         display: flex;
@@ -100,6 +100,86 @@
       }
     }
     &-wrapper {
+      padding-top: 56px;
+      display: flex;
+      gap: 40px;
     }
+  }
+
+  .yearPicker {
+    width: 290px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: $black;
+    input {
+      width: inherit;
+      padding: 0 8px;
+      margin-top: 12px;
+      height: 40px;
+      border: 1px solid $whiteTextDisabled;
+      border-radius: 4px;
+      border: 1px solid $whiteTextDisabled;
+    }
+  }
+
+  .filters-submit-btn {
+    height: 40px;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    border-radius: 4px;
+    border: 1px solid $whiteTextDisabled;
+    background: $black;
+    color: $white;
+  }
+
+  .react-datepicker {
+    border: none;
+    background-color: #f4f4f4;
+  }
+  .react-datepicker__triangle {
+    display: none;
+  }
+
+  .react-datepicker__year-wrapper {
+    max-width: 260px;
+    display: flex;
+    justify-content: center;
+    border: none;
+  }
+  .react-datepicker__header {
+    height: 48px;
+    background: #000000;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 28px;
+    text-align: center;
+    color: #fdfdfd;
+  }
+
+  .react-datepicker__year-text {
+    width: 82px !important;
+    height: 40px;
+    padding-top: 10px;
+  }
+  .react-datepicker__year-text--selected {
+    background-color: $black;
+  }
+
+  .react-datepicker__year-text--keyboard-selected {
+    background-color: $black;
+    color: $white;
+  }
+  .react-datepicker__year-text--keyboard-selected:hover {
+    background-color: $black;
+    color: $white;
+  }
+
+  .react-datepicker__navigation--previous {
+    top: 12px;
+  }
+  .react-datepicker__navigation--next {
+    top: 12px;
   }
 }
