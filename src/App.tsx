@@ -7,18 +7,6 @@ import Navbar from "./components/navbar";
 import SearchPage from "./pages/search";
 
 function App() {
-  const apiUrl = "https://images-api.nasa.gov/search?q=space";
-
-  fetch(apiUrl)
-    .then((response) => response.json())
-    .then((data) => {
-      console.log(data);
-      return data.collection.items;
-    })
-    .catch((error) => {
-      console.error(error);
-    });
-
   return (
     <section className="App">
       <Navbar />

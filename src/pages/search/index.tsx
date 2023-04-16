@@ -1,41 +1,70 @@
-// import { v4 as uuidv4 } from "uuid";
+import { useEffect, useState } from "react";
+import { v4 as uuidv4 } from "uuid";
 import { useForm, SubmitHandler } from "react-hook-form";
 import filterIcon from "../../assets/icons/filters.svg";
 import sortIcon from "../../assets/icons/sort.svg";
+import "react-datepicker/dist/react-datepicker.css";
 import "./styles.scss";
 import SelectComponent from "../../components/select";
 import DatePicker from "react-datepicker";
-import { useState } from "react";
-import "react-datepicker/dist/react-datepicker.css";
+import { selectOptions } from "../../config/selectOptions";
+import Card from "../../components/card";
+import { IInputs } from "../../interfases/IInputs";
+import Services from "../../services/services";
+import Skeleton from "../../components/skeleton";
 
 const SearchPage = () => {
-  type Inputs = {
-    NASAsearch: string;
-    exampleRequired: string;
-  };
-
   const {
     register,
     handleSubmit,
-    watch,
+    setValue,
+    reset,
     formState: { errors },
-  } = useForm<Inputs>();
-  const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data);
+  } = useForm<IInputs>();
 
+  const [NasaData, setNasaData] = useState([]);
+  const [isLoading, setisLoading] = useState<boolean>(true);
   const [startDate, setStartDate] = useState<Date | null>();
   const [endDate, setEndDate] = useState<Date | null>();
 
-  const options = [
-    { value: "", label: "All Topics" },
-    { value: "Mars", label: "Mars" },
-    { value: "Solar System", label: "Solar System" },
-    { value: "Earth", label: "Earth" },
-    { value: "Stars and Galaxies", label: "Stars and Galaxies" },
-    { value: "Robotics", label: "Robotics" },
-    { value: "Technology", label: "Technology" },
-    { value: "Asteroids and Comets", label: "Asteroids and Comets" },
-    { value: "Climate Change", label: "Climate Change" },
-  ];
+  const handleStartDateChange = (date: Date | null) => {
+    setStartDate(date);
+    setValue("year_start", date?.getFullYear()?.toString() ?? "");
+  };
+
+  const handleEndDateChange = (date: Date | null) => {
+    setEndDate(date);
+    setValue("year_end", date?.getFullYear()?.toString() ?? "");
+  };
+
+  const onSubmit: SubmitHandler<IInputs> = async (data) => {
+    const validData = Object.fromEntries(
+      Object.entries(data).filter(
+        ([_, value]) => value !== "" && value !== undefined
+      )
+    );
+    console.log(validData);
+    setisLoading(true);
+    getSearchResource(validData).then((res) => {
+      setisLoading(false);
+      setNasaData(res);
+    });
+  };
+
+  const clearFilters = () => {
+    reset();
+    setStartDate(null);
+    setEndDate(null);
+  };
+
+  const { getAllResource, getSearchResource } = Services();
+
+  useEffect(() => {
+    getAllResource().then((res) => {
+      setisLoading(false);
+      setNasaData(res);
+    });
+  }, []);
 
   return (
     <div className="searchPage">
@@ -53,9 +82,8 @@ const SearchPage = () => {
             <input
               type="text"
               id="validationCustom01"
-              {...register("NASAsearch", { required: true })}
+              {...register("q")}
               placeholder="Search among all photos"
-              required
             />
             <button type="submit">Search</button>
           </div>
@@ -83,32 +111,34 @@ const SearchPage = () => {
               <div className="searchPage__filters-wrapper__select">
                 <SelectComponent
                   register={register}
-                  name="topics"
-                  options={options}
+                  name="keywords"
+                  options={selectOptions}
                   title="Topic"
                 />
               </div>
               <div className="yearPicker">
                 From the year
                 <DatePicker
+                  {...register("year_start")}
                   dateFormat="yyyy"
                   selected={startDate}
-                  onChange={(date: Date | null) => date && setStartDate(date)}
+                  onChange={handleStartDateChange}
                   selectsStart
                   showYearPicker
                   startDate={startDate}
                   endDate={endDate}
                   placeholderText="Click to select a year"
-                  maxDate={new Date()}
+                  maxDate={new Date() && endDate}
                   yearItemNumber={12}
                 />
               </div>
               <div className="yearPicker">
                 Under a year
                 <DatePicker
+                  {...register("year_end")}
                   dateFormat="yyyy"
                   selected={endDate}
-                  onChange={(date: Date | null) => date && setEndDate(date)}
+                  onChange={handleEndDateChange}
                   selectsEnd
                   showYearPicker
                   startDate={startDate}
@@ -119,14 +149,42 @@ const SearchPage = () => {
                   yearItemNumber={12}
                 />
               </div>
-              <div className="d-flex align-items-end">
-                <button className="filters-submit-btn" type="button">
+              <div className="d-flex align-items-end gap-4">
+                <button
+                  className="filters-submit-btn"
+                  type="button"
+                  onClick={clearFilters}
+                >
+                  Clear filters
+                </button>
+                <button className="filters-submit-btn" type="submit">
                   Search
                 </button>
               </div>
             </div>
           </section>
-          <section className="searchPage__results"></section>
+          <section className="searchPage__results">
+            {isLoading ? (
+              <div className="skeleton-wrapper">
+                {[...Array(6)].map((_, index) => (
+                  <Skeleton key={index} />
+                ))}
+              </div>
+            ) : (
+              NasaData?.map((item: any) => {
+                return (
+                  <Card
+                    key={uuidv4()}
+                    thumbnail={item.thumbnail}
+                    description={item.description}
+                    title={item.title}
+                    location={item.location}
+                    photographer={item.photographer}
+                  />
+                );
+              })
+            )}
+          </section>
         </div>
       </form>
     </div>

@@ -1,0 +1,23 @@
+@import "../../styles/variables.scss";
+
+.card {
+  width: 410px;
+  border: none;
+  &__image {
+    height: 280px;
+    border-radius: 10px;
+    object-fit: cover;
+  }
+  &__title {
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 26px;
+    color: $black;
+  }
+  &__location {
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 26px;
+    color: #000000;
+  }
+}

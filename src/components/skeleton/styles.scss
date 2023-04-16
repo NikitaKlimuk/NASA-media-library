@@ -1,0 +1,37 @@
+.skeleton {
+  width: 410px;
+  height: 382px;
+  &__main {
+    border-radius: 10px;
+    height: 280px;
+    background-color: #c4c4c4;
+  }
+  &__mini {
+    width: 100%;
+    height: 15px;
+    background-color: #c4c4c4;
+    margin-top: 8px;
+  }
+  &__block {
+    height: 30px;
+    width: 100%;
+    background-color: #c4c4c4;
+    margin-top: 8px;
+  }
+
+  .pulse {
+    animation: pulse 1.5s ease-in-out 0.5s infinite;
+  }
+
+  @keyframes pulse {
+    0% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.4;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+}
