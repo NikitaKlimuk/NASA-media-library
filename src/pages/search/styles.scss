@@ -103,6 +103,7 @@
       padding-top: 56px;
       display: flex;
       gap: 40px;
+      flex-wrap: wrap;
     }
   }
   &__results {
@@ -146,6 +147,7 @@
     border: 1px solid $whiteTextDisabled;
     background: $black;
     color: $white;
+    white-space: nowrap;
   }
 
   .react-datepicker {
@@ -175,7 +177,11 @@
   .react-datepicker__year-text {
     width: 82px !important;
     height: 40px;
-    padding-top: 10px;
+    padding-top: 8px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    text-align: center;
   }
   .react-datepicker__year-text--selected {
     background-color: $black;

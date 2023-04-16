@@ -43,7 +43,6 @@ const SearchPage = () => {
         ([_, value]) => value !== "" && value !== undefined
       )
     );
-    console.log(validData);
     setisLoading(true);
     getSearchResource(validData).then((res) => {
       setisLoading(false);
@@ -117,7 +116,7 @@ const SearchPage = () => {
                 />
               </div>
               <div className="yearPicker">
-                From the year
+                Search from year
                 <DatePicker
                   {...register("year_start")}
                   dateFormat="yyyy"
@@ -133,7 +132,7 @@ const SearchPage = () => {
                 />
               </div>
               <div className="yearPicker">
-                Under a year
+                Search to year
                 <DatePicker
                   {...register("year_end")}
                   dateFormat="yyyy"

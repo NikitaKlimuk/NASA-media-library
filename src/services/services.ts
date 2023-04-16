@@ -7,8 +7,9 @@ const Services = () => {
 
   const getAllResource = async () => {
     const res = await request(
-      `${_apiBase}/search?q=space&media_type=image&page_size=30&page=1`
+      `${_apiBase}/search?q=space&media_type=image&page_size=30&page=2`
     );
+    console.log(res);
     return res.collection.items.map(_transformItem);
   };
 
