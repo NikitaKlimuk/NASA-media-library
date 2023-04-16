@@ -24,6 +24,7 @@ const SearchPage = () => {
 
   const [NasaData, setNasaData] = useState([]);
   const [isLoading, setisLoading] = useState<boolean>(true);
+  const [isFiltersHiden, setIsFiltersHiden] = useState<boolean>(true);
   const [startDate, setStartDate] = useState<Date | null>();
   const [endDate, setEndDate] = useState<Date | null>();
 
@@ -35,6 +36,10 @@ const SearchPage = () => {
   const handleEndDateChange = (date: Date | null) => {
     setEndDate(date);
     setValue("year_end", date?.getFullYear()?.toString() ?? "");
+  };
+
+  const handleFiltersView = () => {
+    setIsFiltersHiden(!isFiltersHiden);
   };
 
   const onSubmit: SubmitHandler<IInputs> = async (data) => {
@@ -97,7 +102,7 @@ const SearchPage = () => {
         <div className="container">
           <section className="searchPage__filters">
             <div className="searchPage__filters-header">
-              <button type="button" id="filters">
+              <button type="button" id="filters" onClick={handleFiltersView}>
                 <img src={filterIcon} alt="Filter icon" />
                 Filtres
               </button>
@@ -106,7 +111,11 @@ const SearchPage = () => {
                 <img src={sortIcon} alt="Filter icon" />
               </button>
             </div>
-            <div className="searchPage__filters-wrapper">
+            <div
+              className={`searchPage__filters-wrapper filters-active ${
+                !isFiltersHiden ? "show" : ""
+              }`}
+            >
               <div className="searchPage__filters-wrapper__select">
                 <SelectComponent
                   register={register}
@@ -148,7 +157,7 @@ const SearchPage = () => {
                   yearItemNumber={12}
                 />
               </div>
-              <div className="d-flex align-items-end gap-4">
+              <div className="filters-clear-button">
                 <button
                   className="filters-submit-btn"
                   type="button"
