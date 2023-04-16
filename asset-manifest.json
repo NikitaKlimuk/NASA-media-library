@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/static/css/main.7c8351f9.css",
+    "main.js": "/static/js/main.9a4a42af.js",
+    "static/media/mainBg.jpg": "/static/media/mainBg.c91d63e59531e458f23b.jpg",
+    "static/media/Quicksand-Regular.ttf": "/static/media/Quicksand-Regular.eaaa0325196cfc4dc15b.ttf",
+    "static/media/Quicksand-Medium.ttf": "/static/media/Quicksand-Medium.7792600dd06c7375ffad.ttf",
+    "static/media/Quicksand-SemiBold.ttf": "/static/media/Quicksand-SemiBold.d730f269b7f1f4f263f3.ttf",
+    "static/media/Quicksand-Light.ttf": "/static/media/Quicksand-Light.75ad244f392abbeea049.ttf",
+    "static/media/Quicksand-Bold.ttf": "/static/media/Quicksand-Bold.4c95904387d18546c023.ttf",
+    "static/media/NASA_logo_sm.svg": "/static/media/NASA_logo_sm.8407f0d9d0a5cc73f168f50c7d7f7df0.svg",
+    "index.html": "/index.html",
+    "static/media/filters.svg": "/static/media/filters.c935f45db94a403aad714647e880ffb9.svg",
+    "static/media/sort.svg": "/static/media/sort.94db08d041e7b0a906baaec444ae4dad.svg",
+    "main.7c8351f9.css.map": "/static/css/main.7c8351f9.css.map",
+    "main.9a4a42af.js.map": "/static/js/main.9a4a42af.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7c8351f9.css",
+    "static/js/main.9a4a42af.js"
+  ]
+}
