@@ -7,22 +7,29 @@ const Services = () => {
 
   const getAllResource = async () => {
     const res = await request(
-      `${_apiBase}/search?q=space&media_type=image&page_size=15&page=1`
+      `${_apiBase}/search?&media_type=image&page_size=15&page=1`
     );
-    console.log(res);
-    return res.collection.items.map(_transformItem);
+    const transformRes = res.collection.items.map(_transformItem);
+    const pageCount = res.collection.metadata.total_hits;
+    return { transformRes, pageCount };
   };
 
-  const getSearchResource = async (formData: any) => {
+  const getSearchResource = async (formData: any, currentPage: number) => {
     const { q, keywords, year_start, year_end } = formData;
-    const res = await request(
-      `${_apiBase}/search?${q ? `&q=${q}` : ""}${
-        year_start ? `&year_start=${year_start}` : ""
-      }${year_end ? `&year_end=${year_end}` : ""}${
-        keywords ? `&keywords=${keywords}` : ""
-      }&media_type=image&page_size=15&page=1`
-    );
-    return res.collection.items.map(_transformItem);
+    const queryParams = [
+      q ? `q=${encodeURI(q)}` : "",
+      year_start ? `year_start=${year_start}` : "",
+      year_end ? `year_end=${year_end}` : "",
+      keywords ? `keywords=${encodeURI(keywords)}` : "",
+      "media_type=image",
+      "page_size=15",
+      currentPage ? `page=${currentPage}` : "",
+    ];
+    const queryString = queryParams.filter(Boolean).join("&");
+    const res = await request(`${_apiBase}/search?${queryString}`);
+    const transformRes = res.collection.items.map(_transformItem);
+    const pageCount = res.collection.metadata.total_hits;
+    return { transformRes, pageCount };
   };
 
   const _transformItem = (card: any) => {

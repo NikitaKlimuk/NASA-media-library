@@ -12,6 +12,7 @@ import Card from "../../components/card";
 import { IInputs } from "../../interfases/IInputs";
 import Services from "../../services/services";
 import Skeleton from "../../components/skeleton";
+import Pagination from "../../components/paginate";
 
 const SearchPage = () => {
   const {
@@ -21,12 +22,15 @@ const SearchPage = () => {
     reset,
     formState: { errors },
   } = useForm<IInputs>();
+  const { getAllResource, getSearchResource } = Services();
 
   const [NasaData, setNasaData] = useState([]);
   const [isLoading, setisLoading] = useState<boolean>(true);
   const [isFiltersHiden, setIsFiltersHiden] = useState<boolean>(true);
   const [startDate, setStartDate] = useState<Date | null>();
   const [endDate, setEndDate] = useState<Date | null>();
+  const [totalPage, setTotalPage] = useState<number | undefined>();
+  const [currentPage, setCurrentPage] = useState<number>(0);
 
   const handleStartDateChange = (date: Date | null) => {
     setStartDate(date);
@@ -49,10 +53,13 @@ const SearchPage = () => {
       )
     );
     setisLoading(true);
-    getSearchResource(validData).then((res) => {
-      setisLoading(false);
-      setNasaData(res);
-    });
+    getSearchResource(validData, currentPage).then(
+      ({ transformRes, pageCount }) => {
+        setisLoading(false);
+        setNasaData(transformRes);
+        setTotalPage(pageCount);
+      }
+    );
   };
 
   const clearFilters = () => {
@@ -61,12 +68,15 @@ const SearchPage = () => {
     setEndDate(null);
   };
 
-  const { getAllResource, getSearchResource } = Services();
+  useEffect(() => {
+    handleSubmit(onSubmit)();
+  }, [currentPage]);
 
   useEffect(() => {
-    getAllResource().then((res) => {
+    getAllResource().then(({ transformRes, pageCount }) => {
       setisLoading(false);
-      setNasaData(res);
+      setNasaData(transformRes);
+      setTotalPage(pageCount);
     });
   }, []);
 
@@ -174,6 +184,10 @@ const SearchPage = () => {
               </div>
             </div>
           </section>
+          <Pagination
+            totalPage={totalPage ?? 0}
+            setCurentPage={setCurrentPage}
+          />
           <section className="searchPage__results">
             {isLoading ? (
               <div className="skeleton-wrapper">
