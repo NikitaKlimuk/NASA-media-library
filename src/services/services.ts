@@ -7,7 +7,7 @@ const Services = () => {
 
   const getAllResource = async () => {
     const res = await request(
-      `${_apiBase}/search?q=space&media_type=image&page_size=30&page=2`
+      `${_apiBase}/search?q=space&media_type=image&page_size=15&page=1`
     );
     console.log(res);
     return res.collection.items.map(_transformItem);
@@ -20,7 +20,7 @@ const Services = () => {
         year_start ? `&year_start=${year_start}` : ""
       }${year_end ? `&year_end=${year_end}` : ""}${
         keywords ? `&keywords=${keywords}` : ""
-      }&media_type=image&page_size=30&page=1`
+      }&media_type=image&page_size=15&page=1`
     );
     return res.collection.items.map(_transformItem);
   };

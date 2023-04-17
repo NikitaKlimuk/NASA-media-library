@@ -5,6 +5,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.js";
 import Navbar from "./components/navbar";
 import SearchPage from "./pages/search";
+import Footer from "./components/footer";
 
 function App() {
   return (
@@ -16,7 +17,7 @@ function App() {
           {/* <Route path="/NASA-media-library" element={<SearchPage />} /> */}
         </Routes>
       </main>
-      {/* <Footer /> */}
+      <Footer />
     </section>
   );
 }

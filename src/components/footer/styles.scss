@@ -1,0 +1,49 @@
+@import "../../styles/variables.scss";
+
+.footer {
+  min-height: 165px;
+  background: $black;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  &__logo {
+    padding-left: 67px;
+  }
+  &__links {
+    padding-left: 78px;
+    display: flex;
+    gap: 54px;
+    a {
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 24px;
+      color: $whiteText;
+      text-decoration: none;
+    }
+  }
+  &__text {
+    padding-left: 54px;
+    display: flex;
+    gap: 54px;
+    p {
+      margin: 0;
+      max-width: 315px;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 24px;
+      color: $footerText;
+    }
+    &-author {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      p {
+        margin: 0;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 24px;
+        color: $footerText;
+      }
+    }
+  }
+}

@@ -88,6 +88,7 @@ const SearchPage = () => {
               id="validationCustom01"
               {...register("q")}
               placeholder="Search among all photos"
+              autoComplete="off"
             />
             <button type="submit">Search</button>
           </div>
@@ -125,7 +126,7 @@ const SearchPage = () => {
                 />
               </div>
               <div className="yearPicker">
-                Search from year
+                Search Year From
                 <DatePicker
                   {...register("year_start")}
                   dateFormat="yyyy"
@@ -138,10 +139,11 @@ const SearchPage = () => {
                   placeholderText="Click to select a year"
                   maxDate={new Date() && endDate}
                   yearItemNumber={12}
+                  autoComplete="off"
                 />
               </div>
               <div className="yearPicker">
-                Search to year
+                Search Year To
                 <DatePicker
                   {...register("year_end")}
                   dateFormat="yyyy"
@@ -155,6 +157,7 @@ const SearchPage = () => {
                   placeholderText="Click to select a year"
                   maxDate={new Date()}
                   yearItemNumber={12}
+                  autoComplete="off"
                 />
               </div>
               <div className="filters-clear-button">
