@@ -5,28 +5,33 @@ const Services = () => {
   const _apiBase = "https://images-api.nasa.gov";
   const { request, clearError, process, setProcess } = useHttp();
 
-  const getAllResource = async () => {
+  const getAllResource = async (currentPage: number, pageSize: string) => {
     const res = await request(
-      `${_apiBase}/search?&media_type=image&page_size=15&page=1`
+      `${_apiBase}/search?q=space&media_type=image&page_size=${pageSize}&page=${currentPage}`
     );
     const transformRes = res.collection.items.map(_transformItem);
     const pageCount = res.collection.metadata.total_hits;
     return { transformRes, pageCount };
   };
 
-  const getSearchResource = async (formData: any, currentPage: number) => {
+  const getSearchResource = async (
+    formData: any,
+    currentPage: number,
+    pageSize: string
+  ) => {
     const { q, keywords, year_start, year_end } = formData;
     const queryParams = [
-      q ? `q=${encodeURI(q)}` : "",
+      q ? `q=${encodeURI(q)}` : "q=space",
       year_start ? `year_start=${year_start}` : "",
       year_end ? `year_end=${year_end}` : "",
       keywords ? `keywords=${encodeURI(keywords)}` : "",
       "media_type=image",
-      "page_size=15",
+      pageSize ? `page_size=${pageSize}` : "",
       currentPage ? `page=${currentPage}` : "",
     ];
     const queryString = queryParams.filter(Boolean).join("&");
     const res = await request(`${_apiBase}/search?${queryString}`);
+    console.log(res);
     const transformRes = res.collection.items.map(_transformItem);
     const pageCount = res.collection.metadata.total_hits;
     return { transformRes, pageCount };

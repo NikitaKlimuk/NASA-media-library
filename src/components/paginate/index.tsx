@@ -5,27 +5,32 @@ import "./styles.scss";
 interface IPagination {
   setCurentPage: any;
   totalPage: number;
-  // paginate: (pageNumber: number) => void;
+  currentPage: number;
+  pageSize: string;
 }
 
 const Pagination: React.FC<IPagination> = ({
   setCurentPage,
   totalPage,
-  // paginate,
+  pageSize,
+  currentPage,
 }) => {
+  const resultPageCount = totalPage > 10000 ? 10000 : totalPage;
+
   const handlePageClick = (event: { selected: number }) => {
-    setCurentPage(event.selected);
-    console.log(`User requested page number ${event.selected}`);
+    setCurentPage(event.selected + 1);
   };
 
   return (
     <ReactPaginate
+      forcePage={currentPage - 1}
       className="pagination"
       breakLabel="..."
       nextLabel="next >"
       onPageChange={handlePageClick}
       pageRangeDisplayed={3}
-      pageCount={totalPage}
+      marginPagesDisplayed={1}
+      pageCount={Math.floor(resultPageCount / +pageSize)}
       previousLabel="< previous"
       renderOnZeroPageCount={null}
     />

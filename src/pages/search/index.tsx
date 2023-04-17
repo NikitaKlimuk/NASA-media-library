@@ -3,8 +3,6 @@ import { v4 as uuidv4 } from "uuid";
 import { useForm, SubmitHandler } from "react-hook-form";
 import filterIcon from "../../assets/icons/filters.svg";
 import sortIcon from "../../assets/icons/sort.svg";
-import "react-datepicker/dist/react-datepicker.css";
-import "./styles.scss";
 import SelectComponent from "../../components/select";
 import DatePicker from "react-datepicker";
 import { selectOptions } from "../../config/selectOptions";
@@ -13,6 +11,9 @@ import { IInputs } from "../../interfases/IInputs";
 import Services from "../../services/services";
 import Skeleton from "../../components/skeleton";
 import Pagination from "../../components/paginate";
+import { selectPageSize } from "../../config/selectPageSige";
+import "react-datepicker/dist/react-datepicker.css";
+import "./styles.scss";
 
 const SearchPage = () => {
   const {
@@ -30,7 +31,8 @@ const SearchPage = () => {
   const [startDate, setStartDate] = useState<Date | null>();
   const [endDate, setEndDate] = useState<Date | null>();
   const [totalPage, setTotalPage] = useState<number | undefined>();
-  const [currentPage, setCurrentPage] = useState<number>(0);
+  const [currentPage, setCurrentPage] = useState<number>(1);
+  const [pageSize, setPageSize] = useState<string>("15");
 
   const handleStartDateChange = (date: Date | null) => {
     setStartDate(date);
@@ -53,7 +55,7 @@ const SearchPage = () => {
       )
     );
     setisLoading(true);
-    getSearchResource(validData, currentPage).then(
+    getSearchResource(validData, currentPage, pageSize).then(
       ({ transformRes, pageCount }) => {
         setisLoading(false);
         setNasaData(transformRes);
@@ -69,16 +71,12 @@ const SearchPage = () => {
   };
 
   useEffect(() => {
-    handleSubmit(onSubmit)();
-  }, [currentPage]);
+    setCurrentPage(1);
+  }, [pageSize]);
 
   useEffect(() => {
-    getAllResource().then(({ transformRes, pageCount }) => {
-      setisLoading(false);
-      setNasaData(transformRes);
-      setTotalPage(pageCount);
-    });
-  }, []);
+    handleSubmit(onSubmit)();
+  }, [currentPage]);
 
   return (
     <div className="searchPage">
@@ -187,7 +185,23 @@ const SearchPage = () => {
           <Pagination
             totalPage={totalPage ?? 0}
             setCurentPage={setCurrentPage}
+            currentPage={currentPage}
+            pageSize={pageSize}
           />
+          <select
+            className="select__select"
+            onChange={(e) => setPageSize(e.target.value)}
+          >
+            {selectPageSize.map((num) => (
+              <option
+                className="select__select-option"
+                key={uuidv4()}
+                value={num}
+              >
+                {num}
+              </option>
+            ))}
+          </select>
           <section className="searchPage__results">
             {isLoading ? (
               <div className="skeleton-wrapper">
