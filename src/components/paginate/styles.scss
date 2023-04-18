@@ -1,21 +1,67 @@
 @import "../../styles/variables.scss";
 
-.pagination {
+.paginate {
+  min-height: 40px;
   display: flex;
+  align-items: center;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-  gap: 10px;
+  gap: 60px;
   &__wrapper {
     display: flex;
-    // flex-wrap: wrap;
-    // justify-content: space-between;
-    // align-items: center;
+    height: 40px;
+    align-items: center;
+    gap: 20px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 26px;
+    color: #acacac;
+    &-select {
+      padding: 0 12px;
+      height: 40px;
+      border: 1px solid $bordedBtn;
+      border-radius: 4px;
+    }
   }
   &__paginate {
+    height: 40px;
     .pagination {
       display: flex;
+      gap: 28px;
+      align-items: center;
+      background-position: 8px 0px;
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 26px;
+      color: $black;
+      &-previous {
+        display: block;
+        background: url("../../assets/icons/arrow-left.svg") no-repeat;
+        color: transparent;
+        width: 40px;
+        height: 40px;
+      }
+      &-next {
+        display: block;
+        background: url("../../assets/icons/arrow-right.svg") no-repeat;
+        width: 40px;
+        height: 40px;
+        color: transparent;
+      }
+      &-active {
+        text-decoration: underline;
+      }
+    }
+  }
+  &__input {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 26px;
+    color: #acacac;
+    display: flex;
+    gap: 20px;
+    input {
+      max-width: 60px;
     }
   }
 }

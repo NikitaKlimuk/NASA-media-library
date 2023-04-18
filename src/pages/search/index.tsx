@@ -29,7 +29,7 @@ const SearchPage = () => {
   console.log("setProcess", process);
 
   const [NasaData, setNasaData] = useState([]);
-  const [isFiltersHiden, setIsFiltersHiden] = useState<boolean>(false);
+  const [isFiltersHiden, setIsFiltersHiden] = useState<boolean>(true);
   const [startDate, setStartDate] = useState<Date | null>();
   const [endDate, setEndDate] = useState<Date | null>();
   const [totalPage, setTotalPage] = useState<number | undefined>();
@@ -193,16 +193,18 @@ const SearchPage = () => {
             </div>
           </section>
           <section className="searchPage__content">
+            <div className="searchPage__content-pagination">
+              <Pagination
+                totalPage={totalPage ?? 0}
+                setCurentPage={setCurrentPage}
+                currentPage={currentPage}
+                pageSize={pageSize}
+                setPageSize={setPageSize}
+                isLargePagination
+              />
+            </div>
             {process === "loading" && (
               <>
-                <Pagination
-                  totalPage={totalPage ?? 0}
-                  setCurentPage={setCurrentPage}
-                  currentPage={currentPage}
-                  pageSize={pageSize}
-                  setPageSize={setPageSize}
-                  isLargePagination
-                />
                 <div className="skeleton-wrapper">
                   {[...Array(6)].map((_, index) => (
                     <Skeleton key={index} />
@@ -212,14 +214,6 @@ const SearchPage = () => {
             )}
             {process === "finaly" && NasaData.length > 0 ? (
               <>
-                <Pagination
-                  totalPage={totalPage ?? 0}
-                  setCurentPage={setCurrentPage}
-                  currentPage={currentPage}
-                  pageSize={pageSize}
-                  setPageSize={setPageSize}
-                  isLargePagination
-                />
                 <div className="searchPage__results">
                   {NasaData?.map((item: any) => {
                     return (
@@ -233,18 +227,19 @@ const SearchPage = () => {
                       />
                     );
                   })}
-                  <Pagination
-                    totalPage={totalPage ?? 0}
-                    setCurentPage={setCurrentPage}
-                    currentPage={currentPage}
-                    pageSize={pageSize}
-                    setPageSize={setPageSize}
-                  />
                 </div>
               </>
             ) : (
               <EmptyData />
             )}
+
+            <Pagination
+              totalPage={totalPage ?? 0}
+              setCurentPage={setCurrentPage}
+              currentPage={currentPage}
+              pageSize={pageSize}
+              setPageSize={setPageSize}
+            />
           </section>
         </div>
       </form>

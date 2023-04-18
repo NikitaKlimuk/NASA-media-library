@@ -28,11 +28,11 @@ const Pagination: React.FC<IPagination> = ({
   };
 
   return (
-    <div className="pagination">
+    <div className="paginate">
       {isLargePagination && (
-        <div className="pagination__wrapper">
+        <div className="paginate__wrapper">
           <select
-            className="pagination__wrapper-select"
+            className="paginate__wrapper-select"
             onChange={(e) => {
               e.preventDefault();
               setPageSize(e.target.value);
@@ -41,7 +41,7 @@ const Pagination: React.FC<IPagination> = ({
           >
             {selectPageSize.map((num) => (
               <option
-                className="pagination__wrapper-select__option"
+                className="paginate__wrapper-select__option"
                 key={uuidv4()}
                 defaultValue={num}
               >
@@ -52,23 +52,26 @@ const Pagination: React.FC<IPagination> = ({
           Select Page Size
         </div>
       )}
-      <div className="pagination__paginate">
+      <div className="paginate__paginate">
         <ReactPaginate
+          activeClassName="pagination-active"
           forcePage={currentPage - 1}
           className="pagination"
           breakLabel="..."
-          nextLabel="next >"
+          nextLabel=">"
+          nextLinkClassName="pagination-next"
           onPageChange={handlePageClick}
           pageRangeDisplayed={3}
           marginPagesDisplayed={1}
           pageCount={Math.floor(resultPageCount / +pageSize)}
-          previousLabel="< previous"
+          previousLabel="<"
+          previousLinkClassName="pagination-previous"
           renderOnZeroPageCount={null}
         />
       </div>
 
       {isLargePagination && (
-        <div className="pagination__input">
+        <div className="paginate__input">
           Select page
           <input
             type="number"
