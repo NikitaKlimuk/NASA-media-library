@@ -173,6 +173,11 @@
       display: flex;
       justify-content: center;
     }
+    &-pagination__end {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 60px;
+    }
   }
 
   .yearPicker {

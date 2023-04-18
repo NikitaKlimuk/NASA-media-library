@@ -59,9 +59,13 @@
     line-height: 26px;
     color: #acacac;
     display: flex;
+    align-items: center;
     gap: 20px;
     input {
+      height: 40px;
       max-width: 60px;
+      border: 1px solid $bordedBtn;
+      border-radius: 4px;
     }
   }
 }

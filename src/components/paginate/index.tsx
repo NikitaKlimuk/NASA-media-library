@@ -78,6 +78,7 @@ const Pagination: React.FC<IPagination> = ({
             autoComplete="off"
             defaultValue={currentPage}
             onBlur={(event) => setCurentPage(event.target.value)}
+            min="0"
           />
           Showing {Math.floor(resultPageCount / +pageSize)} results
         </div>

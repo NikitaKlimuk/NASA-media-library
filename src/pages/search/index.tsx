@@ -31,7 +31,7 @@ const SearchPage = () => {
   const [NasaData, setNasaData] = useState([]);
   const [isFiltersHiden, setIsFiltersHiden] = useState<boolean>(true);
   const [startDate, setStartDate] = useState<Date | null>();
-  const [endDate, setEndDate] = useState<Date | null>();
+  const [endDate, setEndDate] = useState<Date | null>(new Date());
   const [totalPage, setTotalPage] = useState<number | undefined>();
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [pageSize, setPageSize] = useState<string>("15");
@@ -193,27 +193,25 @@ const SearchPage = () => {
             </div>
           </section>
           <section className="searchPage__content">
-            <div className="searchPage__content-pagination">
-              <Pagination
-                totalPage={totalPage ?? 0}
-                setCurentPage={setCurrentPage}
-                currentPage={currentPage}
-                pageSize={pageSize}
-                setPageSize={setPageSize}
-                isLargePagination
-              />
-            </div>
             {process === "loading" && (
-              <>
-                <div className="skeleton-wrapper">
-                  {[...Array(6)].map((_, index) => (
-                    <Skeleton key={index} />
-                  ))}
-                </div>
-              </>
+              <div className="skeleton-wrapper">
+                {[...Array(+pageSize)].map((_, index) => (
+                  <Skeleton key={index} />
+                ))}
+              </div>
             )}
-            {process === "finaly" && NasaData.length > 0 ? (
+            {process === "finaly" || NasaData.length > 0 ? (
               <>
+                <div className="searchPage__content-pagination">
+                  <Pagination
+                    totalPage={totalPage ?? 0}
+                    setCurentPage={setCurrentPage}
+                    currentPage={currentPage}
+                    pageSize={pageSize}
+                    setPageSize={setPageSize}
+                    isLargePagination
+                  />
+                </div>
                 <div className="searchPage__results">
                   {NasaData?.map((item: any) => {
                     return (
@@ -228,18 +226,19 @@ const SearchPage = () => {
                     );
                   })}
                 </div>
+                <div className="searchPage__content-pagination__end">
+                  <Pagination
+                    totalPage={totalPage ?? 0}
+                    setCurentPage={setCurrentPage}
+                    currentPage={currentPage}
+                    pageSize={pageSize}
+                    setPageSize={setPageSize}
+                  />
+                </div>
               </>
             ) : (
               <EmptyData />
             )}
-
-            <Pagination
-              totalPage={totalPage ?? 0}
-              setCurentPage={setCurrentPage}
-              currentPage={currentPage}
-              pageSize={pageSize}
-              setPageSize={setPageSize}
-            />
           </section>
         </div>
       </form>
