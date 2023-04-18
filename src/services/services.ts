@@ -1,18 +1,8 @@
 import { useHttp } from "../hooks/http.hook";
-// import { IInputs } from "../interfases/IInputs";
 
 const Services = () => {
   const _apiBase = "https://images-api.nasa.gov";
-  const { request, clearError, process, setProcess } = useHttp();
-
-  // const getAllResource = async (currentPage: number, pageSize: string) => {
-  //   const res = await request(
-  //     `${_apiBase}/search?q=space&media_type=image&page_size=${pageSize}&page=${currentPage}`
-  //   );
-  //   const transformRes = res.collection.items.map(_transformItem);
-  //   const pageCount = res.collection.metadata.total_hits;
-  //   return { transformRes, pageCount };
-  // };
+  const { request, process, setProcess } = useHttp();
 
   const getSearchResource = async (
     formData: any,
