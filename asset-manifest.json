@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/NASA-media-library/static/css/main.fdf00cf5.css",
-    "main.js": "/NASA-media-library/static/js/main.39fb1bdf.js",
+    "main.css": "/NASA-media-library/static/css/main.dc2e19b1.css",
+    "main.js": "/NASA-media-library/static/js/main.322d2593.js",
     "static/media/mainBg.jpg": "/NASA-media-library/static/media/mainBg.c91d63e59531e458f23b.jpg",
     "static/media/Quicksand-Regular.ttf": "/NASA-media-library/static/media/Quicksand-Regular.eaaa0325196cfc4dc15b.ttf",
     "static/media/Quicksand-Medium.ttf": "/NASA-media-library/static/media/Quicksand-Medium.7792600dd06c7375ffad.ttf",
@@ -19,11 +19,11 @@
     "static/media/search-normal.svg": "/NASA-media-library/static/media/search-normal.91aaa483703bd6d8fdb2181471d21b03.svg",
     "static/media/filters.svg": "/NASA-media-library/static/media/filters.c935f45db94a403aad714647e880ffb9.svg",
     "static/media/sort.svg": "/NASA-media-library/static/media/sort.94db08d041e7b0a906baaec444ae4dad.svg",
-    "main.fdf00cf5.css.map": "/NASA-media-library/static/css/main.fdf00cf5.css.map",
-    "main.39fb1bdf.js.map": "/NASA-media-library/static/js/main.39fb1bdf.js.map"
+    "main.dc2e19b1.css.map": "/NASA-media-library/static/css/main.dc2e19b1.css.map",
+    "main.322d2593.js.map": "/NASA-media-library/static/js/main.322d2593.js.map"
   },
   "entrypoints": [
-    "static/css/main.fdf00cf5.css",
-    "static/js/main.39fb1bdf.js"
+    "static/css/main.dc2e19b1.css",
+    "static/js/main.322d2593.js"
   ]
 }
