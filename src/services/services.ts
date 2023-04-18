@@ -5,14 +5,14 @@ const Services = () => {
   const _apiBase = "https://images-api.nasa.gov";
   const { request, clearError, process, setProcess } = useHttp();
 
-  const getAllResource = async (currentPage: number, pageSize: string) => {
-    const res = await request(
-      `${_apiBase}/search?q=space&media_type=image&page_size=${pageSize}&page=${currentPage}`
-    );
-    const transformRes = res.collection.items.map(_transformItem);
-    const pageCount = res.collection.metadata.total_hits;
-    return { transformRes, pageCount };
-  };
+  // const getAllResource = async (currentPage: number, pageSize: string) => {
+  //   const res = await request(
+  //     `${_apiBase}/search?q=space&media_type=image&page_size=${pageSize}&page=${currentPage}`
+  //   );
+  //   const transformRes = res.collection.items.map(_transformItem);
+  //   const pageCount = res.collection.metadata.total_hits;
+  //   return { transformRes, pageCount };
+  // };
 
   const getSearchResource = async (
     formData: any,
@@ -31,9 +31,9 @@ const Services = () => {
     ];
     const queryString = queryParams.filter(Boolean).join("&");
     const res = await request(`${_apiBase}/search?${queryString}`);
-    console.log(res);
     const transformRes = res.collection.items.map(_transformItem);
     const pageCount = res.collection.metadata.total_hits;
+    setProcess("finaly");
     return { transformRes, pageCount };
   };
 
@@ -47,7 +47,7 @@ const Services = () => {
     };
   };
 
-  return { getAllResource, getSearchResource };
+  return { getSearchResource, process, setProcess };
 };
 
 export default Services;

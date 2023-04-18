@@ -3,6 +3,8 @@ import { v4 as uuidv4 } from "uuid";
 import { useForm, SubmitHandler } from "react-hook-form";
 import filterIcon from "../../assets/icons/filters.svg";
 import sortIcon from "../../assets/icons/sort.svg";
+import resetBtn from "../../assets/icons/trash.svg";
+import searchBtn from "../../assets/icons/search-normal.svg";
 import SelectComponent from "../../components/select";
 import DatePicker from "react-datepicker";
 import { selectOptions } from "../../config/selectOptions";
@@ -14,6 +16,7 @@ import Pagination from "../../components/paginate";
 import { selectPageSize } from "../../config/selectPageSige";
 import "react-datepicker/dist/react-datepicker.css";
 import "./styles.scss";
+import EmptyData from "../../components/emptyData";
 
 const SearchPage = () => {
   const {
@@ -23,11 +26,11 @@ const SearchPage = () => {
     reset,
     formState: { errors },
   } = useForm<IInputs>();
-  const { getAllResource, getSearchResource } = Services();
+  const { getSearchResource, process } = Services();
+  console.log("setProcess", process);
 
   const [NasaData, setNasaData] = useState([]);
-  const [isLoading, setisLoading] = useState<boolean>(true);
-  const [isFiltersHiden, setIsFiltersHiden] = useState<boolean>(true);
+  const [isFiltersHiden, setIsFiltersHiden] = useState<boolean>(false);
   const [startDate, setStartDate] = useState<Date | null>();
   const [endDate, setEndDate] = useState<Date | null>();
   const [totalPage, setTotalPage] = useState<number | undefined>();
@@ -54,10 +57,8 @@ const SearchPage = () => {
         ([_, value]) => value !== "" && value !== undefined
       )
     );
-    setisLoading(true);
     getSearchResource(validData, currentPage, pageSize).then(
       ({ transformRes, pageCount }) => {
-        setisLoading(false);
         setNasaData(transformRes);
         setTotalPage(pageCount);
       }
@@ -77,6 +78,8 @@ const SearchPage = () => {
   useEffect(() => {
     handleSubmit(onSubmit)();
   }, [currentPage]);
+
+  console.log("NasaData", NasaData);
 
   return (
     <div className="searchPage">
@@ -102,10 +105,18 @@ const SearchPage = () => {
           </div>
           <div className="searchPage__search-topics">
             <h5>Trending topics</h5>
-            <button type="button">Earth</button>
-            <button type="button">Moon</button>
-            <button type="button">Sun</button>
-            <button type="button">Mars</button>
+            <button className="light-btn" type="button">
+              Earth
+            </button>
+            <button className="light-btn" type="button">
+              Moon
+            </button>
+            <button className="light-btn" type="button">
+              Sun
+            </button>
+            <button className="light-btn" type="button">
+              Mars
+            </button>
           </div>
         </section>
         <div className="container">
@@ -168,18 +179,18 @@ const SearchPage = () => {
                   autoComplete="off"
                 />
               </div>
-              <div className="filters-clear-button">
-                <button
-                  className="filters-submit-btn"
-                  type="button"
-                  onClick={clearFilters}
-                >
-                  Clear filters
-                </button>
-                <button className="filters-submit-btn" type="submit">
-                  Search
-                </button>
-              </div>
+              <button
+                className="filters-clear-button"
+                type="button"
+                onClick={clearFilters}
+              >
+                Reset filters
+                <img src={resetBtn} alt="reset all filters" />
+              </button>
+              <button className="filters-submit-btn" type="submit">
+                Search
+                <img src={searchBtn} alt="search button" />
+              </button>
             </div>
           </section>
           <Pagination
@@ -190,26 +201,31 @@ const SearchPage = () => {
           />
           <select
             className="select__select"
-            onChange={(e) => setPageSize(e.target.value)}
+            onChange={(e) => {
+              e.preventDefault();
+              setPageSize(e.target.value);
+            }}
+            value={pageSize}
           >
             {selectPageSize.map((num) => (
               <option
                 className="select__select-option"
                 key={uuidv4()}
-                value={num}
+                defaultValue={num}
               >
                 {num}
               </option>
             ))}
           </select>
           <section className="searchPage__results">
-            {isLoading ? (
+            {process === "loading" && (
               <div className="skeleton-wrapper">
                 {[...Array(6)].map((_, index) => (
                   <Skeleton key={index} />
                 ))}
               </div>
-            ) : (
+            )}
+            {process === "finaly" && NasaData.length > 0 ? (
               NasaData?.map((item: any) => {
                 return (
                   <Card
@@ -222,6 +238,8 @@ const SearchPage = () => {
                   />
                 );
               })
+            ) : (
+              <EmptyData />
             )}
           </section>
         </div>
