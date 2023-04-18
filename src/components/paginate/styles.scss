@@ -2,5 +2,20 @@
 
 .pagination {
   display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
   gap: 10px;
+  &__wrapper {
+    display: flex;
+    // flex-wrap: wrap;
+    // justify-content: space-between;
+    // align-items: center;
+  }
+  &__paginate {
+    .pagination {
+      display: flex;
+    }
+  }
 }

@@ -13,7 +13,6 @@ import { IInputs } from "../../interfases/IInputs";
 import Services from "../../services/services";
 import Skeleton from "../../components/skeleton";
 import Pagination from "../../components/paginate";
-import { selectPageSize } from "../../config/selectPageSige";
 import "react-datepicker/dist/react-datepicker.css";
 import "./styles.scss";
 import EmptyData from "../../components/emptyData";
@@ -193,51 +192,56 @@ const SearchPage = () => {
               </button>
             </div>
           </section>
-          <Pagination
-            totalPage={totalPage ?? 0}
-            setCurentPage={setCurrentPage}
-            currentPage={currentPage}
-            pageSize={pageSize}
-          />
-          <select
-            className="select__select"
-            onChange={(e) => {
-              e.preventDefault();
-              setPageSize(e.target.value);
-            }}
-            value={pageSize}
-          >
-            {selectPageSize.map((num) => (
-              <option
-                className="select__select-option"
-                key={uuidv4()}
-                defaultValue={num}
-              >
-                {num}
-              </option>
-            ))}
-          </select>
-          <section className="searchPage__results">
+          <section className="searchPage__content">
             {process === "loading" && (
-              <div className="skeleton-wrapper">
-                {[...Array(6)].map((_, index) => (
-                  <Skeleton key={index} />
-                ))}
-              </div>
+              <>
+                <Pagination
+                  totalPage={totalPage ?? 0}
+                  setCurentPage={setCurrentPage}
+                  currentPage={currentPage}
+                  pageSize={pageSize}
+                  setPageSize={setPageSize}
+                  isLargePagination
+                />
+                <div className="skeleton-wrapper">
+                  {[...Array(6)].map((_, index) => (
+                    <Skeleton key={index} />
+                  ))}
+                </div>
+              </>
             )}
             {process === "finaly" && NasaData.length > 0 ? (
-              NasaData?.map((item: any) => {
-                return (
-                  <Card
-                    key={uuidv4()}
-                    thumbnail={item.thumbnail}
-                    description={item.description}
-                    title={item.title}
-                    location={item.location}
-                    photographer={item.photographer}
+              <>
+                <Pagination
+                  totalPage={totalPage ?? 0}
+                  setCurentPage={setCurrentPage}
+                  currentPage={currentPage}
+                  pageSize={pageSize}
+                  setPageSize={setPageSize}
+                  isLargePagination
+                />
+                <div className="searchPage__results">
+                  {NasaData?.map((item: any) => {
+                    return (
+                      <Card
+                        key={uuidv4()}
+                        thumbnail={item.thumbnail}
+                        description={item.description}
+                        title={item.title}
+                        location={item.location}
+                        photographer={item.photographer}
+                      />
+                    );
+                  })}
+                  <Pagination
+                    totalPage={totalPage ?? 0}
+                    setCurentPage={setCurrentPage}
+                    currentPage={currentPage}
+                    pageSize={pageSize}
+                    setPageSize={setPageSize}
                   />
-                );
-              })
+                </div>
+              </>
             ) : (
               <EmptyData />
             )}
