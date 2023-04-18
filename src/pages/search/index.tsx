@@ -63,10 +63,18 @@ const SearchPage = () => {
     );
   };
 
+  function handleButtonClick(event: React.MouseEvent<HTMLButtonElement>) {
+    const buttonText = event.currentTarget.innerText;
+    setValue("q", buttonText.toLowerCase());
+    handleSubmit(onSubmit)();
+  }
+
   const clearFilters = () => {
     reset();
     setStartDate(null);
     setEndDate(null);
+    setCurrentPage(1);
+    handleSubmit(onSubmit)();
   };
 
   useEffect(() => {
@@ -101,16 +109,32 @@ const SearchPage = () => {
           </div>
           <div className="searchPage__search-topics">
             <h5>Trending topics</h5>
-            <button className="light-btn" type="button">
+            <button
+              className="light-btn"
+              type="button"
+              onClick={handleButtonClick}
+            >
               Earth
             </button>
-            <button className="light-btn" type="button">
+            <button
+              className="light-btn"
+              type="button"
+              onClick={handleButtonClick}
+            >
               Moon
             </button>
-            <button className="light-btn" type="button">
+            <button
+              className="light-btn"
+              type="button"
+              onClick={handleButtonClick}
+            >
               Sun
             </button>
-            <button className="light-btn" type="button">
+            <button
+              className="light-btn"
+              type="button"
+              onClick={handleButtonClick}
+            >
               Mars
             </button>
           </div>
@@ -190,7 +214,9 @@ const SearchPage = () => {
             </div>
           </section>
           <section className="searchPage__content">
-            {process === "loading" ? (
+            {process === "finaly" && NasaData.length === 0 ? (
+              <EmptyData />
+            ) : (
               <>
                 <div className="searchPage__content-pagination">
                   <Pagination
@@ -203,9 +229,35 @@ const SearchPage = () => {
                   />
                 </div>
                 <div className="skeleton-wrapper">
-                  {[...Array(+pageSize)].map((_, index) => (
-                    <Skeleton key={index} />
-                  ))}
+                  {process === "loading" ? (
+                    <div className="skeleton-wrapper">
+                      {[...Array(+pageSize)].map((_, index) => (
+                        <Skeleton key={index} />
+                      ))}
+                    </div>
+                  ) : (
+                    <div>
+                      {process === "finaly" && NasaData.length > 0 ? (
+                        <div className="searchPage__results">
+                          {NasaData?.map((item: any) => {
+                            return (
+                              <Card
+                                key={uuidv4()}
+                                thumbnail={item.thumbnail}
+                                description={item.description}
+                                title={item.title}
+                                location={item.location}
+                                photographer={item.photographer}
+                                nasaID={item.nasaID}
+                              />
+                            );
+                          })}
+                        </div>
+                      ) : (
+                        <EmptyData />
+                      )}
+                    </div>
+                  )}
                 </div>
                 <div className="searchPage__content-pagination__end">
                   <Pagination
@@ -217,48 +269,6 @@ const SearchPage = () => {
                   />
                 </div>
               </>
-            ) : (
-              <div>
-                {process === "finaly" && NasaData.length > 0 ? (
-                  <>
-                    <div className="searchPage__content-pagination">
-                      <Pagination
-                        totalPage={totalPage ?? 0}
-                        setCurentPage={setCurrentPage}
-                        currentPage={currentPage}
-                        pageSize={pageSize}
-                        setPageSize={setPageSize}
-                        isLargePagination
-                      />
-                    </div>
-                    <div className="searchPage__results">
-                      {NasaData?.map((item: any) => {
-                        return (
-                          <Card
-                            key={uuidv4()}
-                            thumbnail={item.thumbnail}
-                            description={item.description}
-                            title={item.title}
-                            location={item.location}
-                            photographer={item.photographer}
-                          />
-                        );
-                      })}
-                    </div>
-                    <div className="searchPage__content-pagination__end">
-                      <Pagination
-                        totalPage={totalPage ?? 0}
-                        setCurentPage={setCurrentPage}
-                        currentPage={currentPage}
-                        pageSize={pageSize}
-                        setPageSize={setPageSize}
-                      />
-                    </div>
-                  </>
-                ) : (
-                  <EmptyData />
-                )}
-              </div>
             )}
           </section>
         </div>

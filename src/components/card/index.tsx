@@ -1,4 +1,7 @@
 import "./styles.scss";
+import camera from "../../assets/icons/camera.svg";
+import locationIcon from "../../assets/icons/location.svg";
+import { useNavigate } from "react-router-dom";
 
 interface ICard {
   thumbnail: string;
@@ -6,6 +9,7 @@ interface ICard {
   title: string;
   location: string;
   photographer: string;
+  nasaID: string;
 }
 
 const Card: React.FC<ICard> = ({
@@ -14,13 +18,30 @@ const Card: React.FC<ICard> = ({
   title,
   location,
   photographer,
+  nasaID,
 }) => {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate(`/${nasaID}`);
+  };
+
   return (
-    <div className="card">
+    <div className="card" onClick={handleClick}>
       <img className="card__image" src={thumbnail} alt={description} />
-      <div className="card__photographer">{photographer}</div>
+      {photographer && (
+        <div className="card__photographer">
+          <img src={camera} alt="camera logo" />
+          {photographer}
+        </div>
+      )}
       <div className="card__title">{title}</div>
-      <div className="card__location">{location}</div>
+      {location && (
+        <div className="card__location">
+          <img src={locationIcon} alt="location logo" />
+          {location}
+        </div>
+      )}
     </div>
   );
 };

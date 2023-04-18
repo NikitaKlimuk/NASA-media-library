@@ -6,6 +6,7 @@ import "bootstrap/dist/js/bootstrap.js";
 import Navbar from "./components/navbar";
 import SearchPage from "./pages/search";
 import Footer from "./components/footer";
+import ShowPage from "./pages/show";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Routes>
           <Route path="/" element={<SearchPage />} />
           {/* <Route path="/NASA-media-library" element={<SearchPage />} /> */}
+          <Route path="/:nasaId" element={<ShowPage />} />
         </Routes>
       </main>
       <Footer />
