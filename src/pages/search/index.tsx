@@ -11,11 +11,11 @@ import { selectOptions } from "../../config/selectOptions";
 import Card from "../../components/card";
 import { IInputs } from "../../interfases/IInputs";
 import Services from "../../services/services";
-import Skeleton from "../../components/skeleton";
 import Pagination from "../../components/paginate";
 import "react-datepicker/dist/react-datepicker.css";
 import "./styles.scss";
 import EmptyData from "../../components/emptyData";
+import Skeleton from "../../components/skeleton";
 
 const SearchPage = () => {
   const {
@@ -23,7 +23,7 @@ const SearchPage = () => {
     handleSubmit,
     setValue,
     reset,
-    formState: { errors },
+    // formState: { errors },
   } = useForm<IInputs>();
   const { getSearchResource, process } = Services();
 
@@ -83,6 +83,7 @@ const SearchPage = () => {
 
   useEffect(() => {
     handleSubmit(onSubmit)();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentPage]);
 
   return (

@@ -62,7 +62,7 @@ const Services = () => {
     return {
       title: card["AVAIL:Title"],
       description: card["AVAIL:Description508"],
-      date: card["AVAIL:DateCreated"],
+      date: new Date(card["AVAIL:DateCreated"]),
       location: card["AVAIL:Location"],
       photographer: card["AVAIL:Photographer"],
       keywords: card["AVAIL:Keywords"],
