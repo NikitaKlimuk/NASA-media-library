@@ -30,7 +30,7 @@ const SearchPage = () => {
   const [endDate, setEndDate] = useState<Date | null>(new Date());
   const [totalPage, setTotalPage] = useState<number | undefined>();
   const [currentPage, setCurrentPage] = useState<number>(1);
-  const [pageSize, setPageSize] = useState<string>("10");
+  const [pageSize, setPageSize] = useState<string>("15");
 
   const handleStartDateChange = (date: Date | null) => {
     setStartDate(date);

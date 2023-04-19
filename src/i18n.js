@@ -4,9 +4,8 @@ import { initReactI18next } from "react-i18next";
 import enTranslation from "./translations/en.json";
 import plTranslation from "./translations/pl.json";
 
-// Define the i18next configuration
 i18n.use(initReactI18next).init({
-  lng: "en", // Default language
+  lng: "en",
   fallbackLng: "pl",
   debug: false,
   interpolation: {
@@ -14,10 +13,10 @@ i18n.use(initReactI18next).init({
   },
   resources: {
     en: {
-      translation: enTranslation, // English translations
+      translation: enTranslation,
     },
     pl: {
-      translation: plTranslation, // Polish translations
+      translation: plTranslation,
     },
   },
 });
