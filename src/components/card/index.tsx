@@ -32,7 +32,7 @@ const Card: React.FC<ICard> = ({
       <div className="card__title">{title}</div>
       {location && (
         <div className="card__location">
-          <img src={locationIcon} alt="location logo" />
+          <img src={locationIcon} alt={description} />
           {location}
         </div>
       )}
