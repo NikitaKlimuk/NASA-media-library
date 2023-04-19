@@ -1,13 +1,13 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 import "./App.scss";
-import "./styles/media.scss";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.js";
 import Navbar from "./components/navbar";
 import SearchPage from "./pages/search";
 import Footer from "./components/footer";
 import ShowPage from "./pages/show";
+import "./styles/media.scss";
 
 function App() {
   return (
