@@ -15,7 +15,6 @@ function App() {
       <main className="main">
         <Routes>
           <Route path="/" element={<SearchPage />} />
-          {/* <Route path="/NASA-media-library" element={<SearchPage />} /> */}
           <Route path="/:nasaId" element={<ShowPage />} />
         </Routes>
       </main>
