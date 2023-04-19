@@ -1,0 +1,33 @@
+@import "../../styles/variables.scss";
+
+.notFound {
+  width: 100%;
+  height: 78.4vh;
+  background: $black;
+  &__title {
+    padding-top: 120px;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 48px;
+    text-align: center;
+    color: #fdfdfd;
+  }
+  &__link {
+    display: block;
+    width: 174px;
+    margin: 0 auto;
+    margin-top: 40px;
+    background: #ffffff;
+    padding: 10px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: #000000;
+    text-decoration: none;
+  }
+  &__img {
+    padding-top: 100px;
+    display: block;
+    margin: 0 auto;
+  }
+}
