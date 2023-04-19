@@ -6,10 +6,26 @@
   position: relative;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
+  .overlay {
+    position: absolute;
+    height: 280px;
+    width: 410px;
+    border-radius: 10px;
+    background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0) 71.76%,
+      rgba(0, 0, 0, 1) 100%
+    );
+  }
+  &__image {
+    height: 280px;
+    border-radius: 10px;
+    object-fit: cover;
+  }
   &__photographer {
     position: absolute;
     font-weight: 400;
-    font-size: 24px;
+    font-size: 20px;
     line-height: 26px;
     text-align: center;
     color: $white;
@@ -19,11 +35,7 @@
     align-items: center;
     gap: 12px;
   }
-  &__image {
-    height: 280px;
-    border-radius: 10px;
-    object-fit: cover;
-  }
+
   &__title {
     padding-top: 12px;
     font-weight: 500;

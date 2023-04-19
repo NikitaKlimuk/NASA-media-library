@@ -6,7 +6,7 @@ import leftIcon from "../../assets/icons/left.svg";
 import "./styles.scss";
 import { transformDate } from "../../utils/transformDate";
 import SkeletonBig from "../../components/skeletonBig";
-import NotFoundPage from "../notFound";
+import NotFoundPage from "../../components/notFound";
 
 const ShowPage = () => {
   const { getDetailsResult, getImages, process } = Services();

@@ -61,8 +61,8 @@ const Services = () => {
   const _transformItem = (card: any) => {
     return {
       title: card["AVAIL:Title"],
-      description: card["AVAIL:Description508"],
-      date: new Date(card["AVAIL:DateCreated"]),
+      description: card["AVAIL:Description"],
+      date: new Date(card["AVAIL:DateCreated"].split(" ")[0]),
       location: card["AVAIL:Location"],
       photographer: card["AVAIL:Photographer"],
       keywords: card["AVAIL:Keywords"],

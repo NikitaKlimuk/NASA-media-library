@@ -28,6 +28,8 @@ const Card: React.FC<ICard> = ({
 
   return (
     <div className="card" onClick={handleClick}>
+      <div className="overlay"></div>
+
       <img className="card__image" src={thumbnail} alt={description} />
       {photographer && (
         <div className="card__photographer">

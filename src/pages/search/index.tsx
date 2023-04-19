@@ -28,7 +28,7 @@ const SearchPage = () => {
   const { getSearchResource, process } = Services();
 
   const [NasaData, setNasaData] = useState([]);
-  const [isFiltersHiden, setIsFiltersHiden] = useState<boolean>(true);
+  // const [isFiltersHiden, setIsFiltersHiden] = useState<boolean>(false);
   const [startDate, setStartDate] = useState<Date | null>();
   const [endDate, setEndDate] = useState<Date | null>(new Date());
   const [totalPage, setTotalPage] = useState<number | undefined>();
@@ -45,9 +45,9 @@ const SearchPage = () => {
     setValue("year_end", date?.getFullYear()?.toString() ?? "");
   };
 
-  const handleFiltersView = () => {
-    setIsFiltersHiden(!isFiltersHiden);
-  };
+  // const handleFiltersView = () => {
+  //   setIsFiltersHiden(!isFiltersHiden);
+  // };
 
   const onSubmit: SubmitHandler<IInputs> = async (data) => {
     const validData = Object.fromEntries(
@@ -142,7 +142,7 @@ const SearchPage = () => {
         </section>
         <div className="container">
           <section className="searchPage__filters">
-            <div className="searchPage__filters-header">
+            {/* <div className="searchPage__filters-header">
               <button type="button" id="filters" onClick={handleFiltersView}>
                 <img src={filterIcon} alt="Filter icon" />
                 Filtres
@@ -151,12 +151,8 @@ const SearchPage = () => {
                 Latest
                 <img src={sortIcon} alt="Filter icon" />
               </button>
-            </div>
-            <div
-              className={`searchPage__filters-wrapper filters-active ${
-                !isFiltersHiden ? "show" : ""
-              }`}
-            >
+            </div> */}
+            <div className="searchPage__filters-wrapper">
               <div className="searchPage__filters-wrapper__select">
                 <SelectComponent
                   register={register}

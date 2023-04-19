@@ -4,7 +4,7 @@ import "./styles.scss";
 
 function Navbar() {
   return (
-    <nav className="navbar navbar-expand-lg">
+    <nav className="navbar navbar-expand-lg navbar-expand">
       <a className="navbar-brand" href="/">
         <img src={NASAlogoSm} alt="Small NASA logo"></img>
       </a>

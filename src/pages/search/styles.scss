@@ -76,6 +76,7 @@
     }
   }
   &__filters {
+    padding-top: 32px;
     &-header {
       margin: 24px 0;
       height: 42px;
@@ -94,24 +95,11 @@
       }
     }
     &-wrapper {
+      min-height: 76px;
       display: flex;
-      gap: 37px;
+      gap: 20px;
+      justify-content: center;
       flex-wrap: wrap;
-    }
-
-    .filters-active {
-      height: 0;
-      padding-top: 0;
-      padding-bottom: 0;
-      overflow: hidden;
-      transition: height 0.5s ease-in-out, padding-top 0.5s ease-in-out,
-        padding-bottom 0.5s ease-in-out;
-    }
-
-    .filters-active.show {
-      height: 150px;
-      padding-top: 32px;
-      padding-bottom: 20px;
     }
 
     .filters-submit-btn {
@@ -169,6 +157,7 @@
     gap: 24px;
   }
   &__content {
+    margin-top: 60px;
     &-pagination {
       display: flex;
       justify-content: center;
