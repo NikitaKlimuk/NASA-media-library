@@ -2,7 +2,7 @@ import NASAlogoSm from "../../assets/logo/NASA_logo_sm.svg";
 import LanguageToggler from "../languageToggler";
 import "./styles.scss";
 
-function Navbar() {
+const Navbar: React.FC = () => {
   return (
     <nav className="navbar navbar-expand-lg navbar-expand">
       <a className="navbar-brand" href="/">
@@ -48,6 +48,6 @@ function Navbar() {
       </div>
     </nav>
   );
-}
+};
 
 export default Navbar;

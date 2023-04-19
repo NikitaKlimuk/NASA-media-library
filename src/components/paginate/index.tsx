@@ -1,17 +1,9 @@
 import React from "react";
 import ReactPaginate from "react-paginate";
-import "./styles.scss";
 import { selectPageSize } from "../../config/selectPageSige";
 import { v4 as uuidv4 } from "uuid";
-
-interface IPagination {
-  setCurentPage: any;
-  totalPage: number;
-  currentPage: number;
-  pageSize: string;
-  setPageSize: any;
-  isLargePagination?: boolean;
-}
+import "./styles.scss";
+import { IPagination } from "../../interfases/pagination";
 
 const Pagination: React.FC<IPagination> = ({
   setCurentPage,
@@ -39,7 +31,7 @@ const Pagination: React.FC<IPagination> = ({
             }}
             value={pageSize}
           >
-            {selectPageSize.map((num) => (
+            {selectPageSize.map((num: string) => (
               <option
                 className="paginate__wrapper-select__option"
                 key={uuidv4()}
@@ -77,7 +69,7 @@ const Pagination: React.FC<IPagination> = ({
             type="number"
             autoComplete="off"
             defaultValue={currentPage}
-            onBlur={(event) => setCurentPage(event.target.value)}
+            onBlur={(event) => setCurentPage(+event.target.value)}
             min="0"
           />
           Showing {Math.floor(resultPageCount / +pageSize)} results

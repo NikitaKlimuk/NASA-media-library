@@ -1,1 +1,1 @@
-export const selectPageSize = ["15", "30", "100"];
+export const selectPageSize = ["10", "25", "100"];

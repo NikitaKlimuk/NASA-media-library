@@ -1,6 +1,6 @@
 import "./styles.scss";
 
-const SkeletonBig = () => {
+const SkeletonBig: React.FC = () => {
   return (
     <div className="skeletonBig">
       <div className="pulse skeletonBig__title"></div>

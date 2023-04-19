@@ -1,16 +1,8 @@
-import "./styles.scss";
 import camera from "../../assets/icons/camera.svg";
 import locationIcon from "../../assets/icons/location.svg";
 import { useNavigate } from "react-router-dom";
-
-interface ICard {
-  thumbnail: string;
-  description: string;
-  title: string;
-  location: string;
-  photographer: string;
-  nasaID: string;
-}
+import { ICard } from "../../interfases/card";
+import "./styles.scss";
 
 const Card: React.FC<ICard> = ({
   thumbnail,

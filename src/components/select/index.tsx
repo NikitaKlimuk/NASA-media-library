@@ -1,26 +1,14 @@
 import React from "react";
-import { UseFormRegister } from "react-hook-form";
+import { ISelect } from "../../interfases/select";
 import "./styles.scss";
 
-interface Option {
-  value: string;
-  label: string;
-}
-
-interface SelectProps {
-  options: Option[];
-  title: string;
-  register: UseFormRegister<any>;
-  name: string;
-}
-
-const SelectComponent = ({
+const SelectComponent: React.FC<ISelect> = ({
   options,
   title,
   register,
   name,
   ...rest
-}: SelectProps) => {
+}: ISelect) => {
   return (
     <div className="select">
       <label className="select__title" htmlFor={name}>

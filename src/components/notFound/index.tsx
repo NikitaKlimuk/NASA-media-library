@@ -1,9 +1,9 @@
-import "./styles.scss";
 import notFound from "../../assets/images/notFound.png";
+import "./styles.scss";
 
-const NotFoundPage = () => {
+const NotFoundPage: React.FC = () => {
   return (
-    <section className="notFound">
+    <div className="notFound">
       <div className="notFound__title">
         Unfortunately, there is nothing at this address
       </div>
@@ -11,7 +11,7 @@ const NotFoundPage = () => {
         Back to home page
       </a>
       <img className="notFound__img" src={notFound} alt="not found images" />
-    </section>
+    </div>
   );
 };
 

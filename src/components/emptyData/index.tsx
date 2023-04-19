@@ -1,5 +1,5 @@
-import "./styles.scss";
 import blackHole from "../../assets/images/blackHole.png";
+import "./styles.scss";
 
 const EmptyData: React.FC = () => {
   return (

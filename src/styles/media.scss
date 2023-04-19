@@ -130,12 +130,6 @@
     }
   }
 
-  .footer {
-    &__link {
-      gap: 10px;
-    }
-  }
-
   .showPage {
     &__title {
       font-size: 30px;
@@ -158,6 +152,11 @@
           line-height: 20px;
         }
       }
+    }
+  }
+  .footer {
+    &__links {
+      gap: 10px;
     }
   }
 }

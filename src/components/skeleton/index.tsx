@@ -1,6 +1,6 @@
 import "./styles.scss";
 
-const Skeleton = () => {
+const Skeleton: React.FC = () => {
   return (
     <div className="skeleton">
       <div className="pulse skeleton__main"></div>

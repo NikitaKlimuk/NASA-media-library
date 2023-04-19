@@ -1,9 +1,9 @@
-import "./styles.scss";
 import { v4 as uuidv4 } from "uuid";
 import { footerOptions } from "../../config/footerOptions";
 import NasaLogoFooter from "../../assets/logo/NASA_logo_lg.svg";
+import "./styles.scss";
 
-function Footer() {
+const Footer: React.FC = () => {
   return (
     <footer className="footer">
       <div className="footer__logo">
@@ -30,6 +30,6 @@ function Footer() {
       </div>
     </footer>
   );
-}
+};
 
 export default Footer;

@@ -1,16 +1,10 @@
 import React, { useState } from "react";
 import DatePicker from "react-datepicker";
+import { IYearPicker } from "../../interfases/yearPicker";
 import "react-datepicker/dist/react-datepicker.css";
 import "./styles.scss";
 
-interface YearPickerProps {
-  name: string;
-  label: string;
-  register: any;
-  selects?: string;
-}
-
-const YearPicker: React.FC<YearPickerProps> = ({
+const YearPicker: React.FC<IYearPicker> = ({
   name,
   label,
   register,

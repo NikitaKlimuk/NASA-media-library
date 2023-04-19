@@ -3,10 +3,10 @@ import Services from "../../services/services";
 import { useEffect, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import leftIcon from "../../assets/icons/left.svg";
-import "./styles.scss";
 import { transformDate } from "../../utils/transformDate";
 import SkeletonBig from "../../components/skeletonBig";
 import NotFoundPage from "../../components/notFound";
+import "./styles.scss";
 
 const ShowPage = () => {
   const { getDetailsResult, getImages, process } = Services();

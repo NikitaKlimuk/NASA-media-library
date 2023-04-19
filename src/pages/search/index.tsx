@@ -1,21 +1,19 @@
 import { useEffect, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import { useForm, SubmitHandler } from "react-hook-form";
-import filterIcon from "../../assets/icons/filters.svg";
-import sortIcon from "../../assets/icons/sort.svg";
 import resetBtn from "../../assets/icons/trash.svg";
 import searchBtn from "../../assets/icons/search-normal.svg";
 import SelectComponent from "../../components/select";
 import DatePicker from "react-datepicker";
 import { selectOptions } from "../../config/selectOptions";
 import Card from "../../components/card";
-import { IInputs } from "../../interfases/IInputs";
+import { IInputs } from "../../interfases/submitInput/IInputs";
 import Services from "../../services/services";
 import Pagination from "../../components/paginate";
-import "react-datepicker/dist/react-datepicker.css";
-import "./styles.scss";
 import EmptyData from "../../components/emptyData";
 import Skeleton from "../../components/skeleton";
+import "react-datepicker/dist/react-datepicker.css";
+import "./styles.scss";
 
 const SearchPage = () => {
   const {
@@ -28,7 +26,6 @@ const SearchPage = () => {
   const { getSearchResource, process } = Services();
 
   const [NasaData, setNasaData] = useState([]);
-  // const [isFiltersHiden, setIsFiltersHiden] = useState<boolean>(false);
   const [startDate, setStartDate] = useState<Date | null>();
   const [endDate, setEndDate] = useState<Date | null>(new Date());
   const [totalPage, setTotalPage] = useState<number | undefined>();
@@ -44,10 +41,6 @@ const SearchPage = () => {
     setEndDate(date);
     setValue("year_end", date?.getFullYear()?.toString() ?? "");
   };
-
-  // const handleFiltersView = () => {
-  //   setIsFiltersHiden(!isFiltersHiden);
-  // };
 
   const onSubmit: SubmitHandler<IInputs> = async (data) => {
     const validData = Object.fromEntries(
@@ -142,16 +135,6 @@ const SearchPage = () => {
         </section>
         <div className="container">
           <section className="searchPage__filters">
-            {/* <div className="searchPage__filters-header">
-              <button type="button" id="filters" onClick={handleFiltersView}>
-                <img src={filterIcon} alt="Filter icon" />
-                Filtres
-              </button>
-              <button type="button" id="latest">
-                Latest
-                <img src={sortIcon} alt="Filter icon" />
-              </button>
-            </div> */}
             <div className="searchPage__filters-wrapper">
               <div className="searchPage__filters-wrapper__select">
                 <SelectComponent

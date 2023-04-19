@@ -186,13 +186,6 @@
     }
   }
 
-  .skeleton-wrapper {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 24px;
-  }
-
   .react-datepicker {
     border: none;
     background-color: #f4f4f4;
@@ -252,5 +245,12 @@
         background-position: 13px 8px;
       }
     }
+  }
+
+  .skeleton-wrapper {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 24px;
   }
 }
