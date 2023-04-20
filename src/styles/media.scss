@@ -122,10 +122,18 @@
 @media (max-width: 600px) {
   .searchPage {
     &__search {
+      height: 450px;
       &-title {
+        padding-top: 50px;
         max-width: 350px;
         font-size: 40px;
         line-height: 50px;
+      }
+      &-input {
+        margin-top: 50px;
+      }
+      &-topics {
+        margin-top: 50px;
       }
     }
   }

@@ -58,6 +58,11 @@
         border-width: 2px;
         border-style: solid;
         border-color: $whiteText;
+        transition: all 0.2s ease-in-out;
+      }
+      button:hover {
+        background: $btnBgHover;
+        transition: all 0.2s ease-in-out;
       }
     }
     &-topics {
@@ -72,6 +77,11 @@
         color: #acacac;
         display: flex;
         align-items: center;
+        transition: all 0.2s ease-in-out;
+      }
+      button:hover {
+        scale: 103%;
+        transition: all 0.2s ease-in-out;
       }
     }
   }
