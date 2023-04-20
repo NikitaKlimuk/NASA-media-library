@@ -144,6 +144,8 @@
       line-height: 40px;
     }
     &__wrapper {
+      flex-wrap: wrap;
+      gap: 10px;
       &-description {
         font-size: 16px;
         &__date {
@@ -234,8 +236,6 @@
       line-height: 30px;
     }
     &__wrapper {
-      flex-wrap: wrap;
-      gap: 10px;
       &-description {
         font-size: 14px;
         line-height: 20px;
@@ -254,6 +254,13 @@
         }
       }
     }
+  }
+  .skeleton {
+    width: 310px;
+    height: 350px;
+  }
+  .skeletonBig {
+    height: 60%;
   }
 }
 
