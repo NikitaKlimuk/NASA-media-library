@@ -159,6 +159,15 @@
       gap: 10px;
     }
   }
+  .emptyData {
+    &__title {
+      font-size: 28px;
+      line-height: 43px;
+    }
+    &__descr {
+      width: 300px;
+    }
+  }
 }
 
 @media (max-width: 450px) {
