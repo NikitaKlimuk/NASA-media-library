@@ -1,0 +1,57 @@
+{
+  "navbar": {
+    "gallery": "Bildergalerie",
+    "missions": "Missionen",
+    "news": "Nachrichten",
+    "events": "Veranstaltungen"
+  },
+  "searchPage": {
+    "title": "Bilder aus allen Teilen des Sonnensystems anzeigen",
+    "description": "Sie können Fotos von Planeten, Satelliten, Asteroiden, Kometen und anderen Weltraumobjekten sowie Illustrationen und Rendering basierend auf wissenschaftlichen Daten finden.",
+    "search": "Suchen",
+    "searchPlaseholder": "Suche in allen Fotos",
+    "topics": "Trending-Themen",
+    "topic": "Thema",
+    "earth": "Erde",
+    "moon": "Mond",
+    "sun": "Sonne",
+    "mars": "Mars",
+    "searchFrom": "Suche ab Jahr",
+    "searchTo": "Suche bis Jahr",
+    "searchAlt": "Suchtaste",
+    "selectYear": "Klicken Sie hier, um ein Jahr auszuwählen",
+    "reset": "Filter zurücksetzen",
+    "resetAlt": "alle Filter zurücksetzen"
+  },
+  "paginate": {
+    "selectSize": "Wählen Sie die Seitengröße",
+    "selectPage": "Wählen Sie die Seite",
+    "showing": "Anzeige von ",
+    "results": " Ergebnissen"
+  },
+  "footer": {
+    "altLogo": "NASA-Logo",
+    "description": "JPL ist ein von der Bundesregierung finanziertes Forschungs- und Entwicklungszentrum, das vom Caltech für die NASA verwaltet wird.",
+    "develop": "Entwickelt von",
+    "designed": "Entworfen von"
+  },
+  "toggler": "Sprache:",
+  "eng": "Englisch",
+  "pln": "Polnisch",
+  "deu": "Deutsch",
+  "it": "Italienisch",
+
+  "notFound": {
+    "title": "Leider gibt es an dieser Adresse nichts",
+    "link": "Zurück zur Startseite",
+    "imgAlt": "Bilder nicht gefunden"
+  },
+
+  "emptyData": {
+    "title": "Keine Ergebnisse für Ihre Suche gefunden",
+    "description1": "Es gibt keine Ergebnisse, die derzeit ausgewählten Filterkombination entsprechen. Sie können ",
+    "description2": " und es erneut versuchen.",
+    "link": "Filter zurücksetzen",
+    "alt": "Bilder von schwarzen Löchern"
+  }
+}

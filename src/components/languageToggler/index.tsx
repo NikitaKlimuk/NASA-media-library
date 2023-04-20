@@ -41,6 +41,9 @@ const LanguageToggler: React.FC = () => {
         <option className="toggler__select-option" value="pl">
           {t("pln")} 🇵🇱
         </option>
+        <option className="toggler__select-option" value="de">
+          {t("deu")} 🇩🇪
+        </option>
         <option className="toggler__select-option" value="it">
           {t("it")} 🇮🇹
         </option>
