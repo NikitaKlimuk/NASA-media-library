@@ -8,16 +8,16 @@ Preview: https://nasa-media-library-eight.vercel.app/
 
 This project uses the following technologies:
 
-Typescript
-React
-React Router
-Bootstrap
-Sass
-React Hook Form
-React Datepicker
-React Paginate
-React i18n
-UUID
+Typescript,
+React,
+React Router,
+Bootstrap,
+Sass,
+React Hook Form,
+React Datepicker,
+React Paginate,
+React i18n,
+UUID,
 
 ## Features
 
