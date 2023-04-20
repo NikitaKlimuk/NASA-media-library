@@ -13,7 +13,7 @@ const Footer: React.FC = () => {
       <div className="footer__logo">
         <img src={NasaLogoFooter} alt={altLogo} />
       </div>
-      <div className="footer__links">
+      <div className="footer__links" role="list">
         {footerOptions.map((item: { value: string; link: string }) => {
           return (
             <a href={item.link} key={uuidv4()}>
@@ -24,7 +24,7 @@ const Footer: React.FC = () => {
       </div>
       <div className="footer__text">
         <p>{t("footer.description")}</p>
-        <div className="footer__text-author">
+        <div className="footer__text-author" role="list">
           <p>{t("footer.develop")}: Mikita Klimuk</p>
           <p>{t("footer.designed")}: Ilya Grigorenko</p>
         </div>

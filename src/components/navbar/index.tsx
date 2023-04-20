@@ -22,7 +22,11 @@ const Navbar: React.FC = () => {
       >
         <span className="navbar-toggler-icon"></span>
       </button>
-      <div className="navbar__container navbar-collapse" id="navbarNav">
+      <div
+        className="navbar__container navbar-collapse"
+        id="navbarNav"
+        role="list"
+      >
         <ul className="navbar-nav">
           <li className="nav-item">
             <a className="nav-link active" aria-current="page" href="/">

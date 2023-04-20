@@ -7,12 +7,19 @@ const NotFoundPage: React.FC = () => {
   const altText = t("notFound.title");
 
   return (
-    <div className="notFound">
-      <div className="notFound__title">{t("notFound.title")}</div>
+    <div className="notFound" role="status">
+      <div className="notFound__title" role="article">
+        {t("notFound.title")}
+      </div>
       <a className="notFound__link" href="/">
         {t("notFound.link")}
       </a>
-      <img className="notFound__img" src={notFound} alt={altText} />
+      <img
+        className="notFound__img"
+        src={notFound}
+        alt={altText}
+        data-testid="not-found"
+      />
     </div>
   );
 };

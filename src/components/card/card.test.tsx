@@ -23,5 +23,7 @@ describe("Card component", () => {
     expect(screen.getByText(mockCardProps.title)).toBeInTheDocument();
     expect(screen.getByText(mockCardProps.location)).toBeInTheDocument();
     expect(screen.getByText(mockCardProps.photographer)).toBeInTheDocument();
+    const listitem = screen.getAllByRole("listitem");
+    expect(listitem).toHaveLength(2);
   });
 });

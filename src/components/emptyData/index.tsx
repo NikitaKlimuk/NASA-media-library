@@ -7,9 +7,9 @@ const EmptyData: React.FC = () => {
   const altText = t("emptyData.alt");
 
   return (
-    <div className="emptyData">
+    <div className="emptyData" role="status">
       <div className="emptyData__title">{t("emptyData.title")}</div>
-      <div className="emptyData__descr">
+      <div className="emptyData__descr" role="article">
         {t("emptyData.description1")}
         <a href="/">{t("emptyData.link")}</a>
         {t("emptyData.description2")}

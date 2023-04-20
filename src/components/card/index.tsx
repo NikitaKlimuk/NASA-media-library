@@ -19,19 +19,19 @@ const Card: React.FC<ICard> = ({
   };
 
   return (
-    <div className="card" onClick={handleClick}>
+    <div className="card" onClick={handleClick} role="link">
       <div className="overlay"></div>
 
       <img className="card__image" src={thumbnail} alt={description} />
       {photographer && (
-        <div className="card__photographer">
+        <div className="card__photographer" role="listitem">
           <img src={camera} alt="camera logo" />
           {photographer}
         </div>
       )}
       <div className="card__title">{title}</div>
       {location && (
-        <div className="card__location">
+        <div className="card__location" role="listitem">
           <img src={locationIcon} alt={description} />
           {location}
         </div>
