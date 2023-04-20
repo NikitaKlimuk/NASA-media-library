@@ -1,7 +1,11 @@
 # NASA Media Library React App
+
 This project is a React-based web application that utilizes NASA's public API for image collection. Users can search the library and view detailed information about specific results.
 
+Preview: https://nasa-media-library-eight.vercel.app/
+
 ## Technologies Used
+
 This project uses the following technologies:
 
 Typescript
@@ -16,6 +20,7 @@ React i18n
 UUID
 
 ## Features
+
 ### Search Page
 
 Allows users to search the NASA Media Library
@@ -33,10 +38,13 @@ Getting Started
 To get started with this project, clone this repository and follow these steps:
 
 ## Install dependencies with npm install
+
 Start the application with npm start
 
 ## Testing
+
 This project includes basic tests to ensure proper functionality. To run tests, use the following command: npm test.
 
 ## Credits
+
 This project was created by Mikita Klimuk. Special thanks to NASA for providing the public API.
