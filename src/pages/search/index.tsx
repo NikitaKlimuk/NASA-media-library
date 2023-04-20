@@ -12,6 +12,7 @@ import Services from "../../services/services";
 import Pagination from "../../components/paginate";
 import EmptyData from "../../components/emptyData";
 import Skeleton from "../../components/skeleton";
+import { useTranslation } from "react-i18next";
 import "react-datepicker/dist/react-datepicker.css";
 import "./styles.scss";
 
@@ -31,6 +32,12 @@ const SearchPage = () => {
   const [totalPage, setTotalPage] = useState<number | undefined>();
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [pageSize, setPageSize] = useState<string>("15");
+
+  const { t } = useTranslation();
+  const selectYearText = t("searchPage.selectYear");
+  const resetAltText = t("searchPage.resetAlt");
+  const searchAltText = t("searchPage.searchAlt");
+  const searchPlaseholder = t("searchPage.searchPlaseholder");
 
   const handleStartDateChange = (date: Date | null) => {
     setStartDate(date);
@@ -83,53 +90,49 @@ const SearchPage = () => {
     <div className="searchPage">
       <form className="needs-validation" onSubmit={handleSubmit(onSubmit)}>
         <section className="searchPage__search">
-          <h1 className="searchPage__search-title">
-            View images from all parts of the solar system
-          </h1>
+          <h1 className="searchPage__search-title">{t("searchPage.title")}</h1>
           <h2 className="searchPage__search-descr">
-            You can find photos of planets, satellites, asteroids, comets, and
-            other space objects, as well as illustrations and renderings based
-            on scientific data.
+            {t("searchPage.description")}
           </h2>
           <div className="searchPage__search-input">
             <input
               type="text"
               id="validationCustom01"
               {...register("q")}
-              placeholder="Search among all photos"
+              placeholder={searchPlaseholder}
               autoComplete="off"
             />
-            <button type="submit">Search</button>
+            <button type="submit">{t("searchPage.search")}</button>
           </div>
           <div className="searchPage__search-topics">
-            <h5>Trending topics</h5>
+            <h5>{t("searchPage.topics")}</h5>
             <button
               className="light-btn"
               type="button"
               onClick={handleButtonClick}
             >
-              Earth
+              {t("searchPage.earth")}
             </button>
             <button
               className="light-btn"
               type="button"
               onClick={handleButtonClick}
             >
-              Moon
+              {t("searchPage.moon")}
             </button>
             <button
               className="light-btn"
               type="button"
               onClick={handleButtonClick}
             >
-              Sun
+              {t("searchPage.sun")}
             </button>
             <button
               className="light-btn"
               type="button"
               onClick={handleButtonClick}
             >
-              Mars
+              {t("searchPage.mars")}
             </button>
           </div>
         </section>
@@ -141,11 +144,11 @@ const SearchPage = () => {
                   register={register}
                   name="keywords"
                   options={selectOptions}
-                  title="Topic"
+                  title={t("searchPage.topic")}
                 />
               </div>
               <div className="yearPicker">
-                Search Year From
+                {t("searchPage.searchFrom")}
                 <DatePicker
                   {...register("year_start")}
                   dateFormat="yyyy"
@@ -155,14 +158,14 @@ const SearchPage = () => {
                   showYearPicker
                   startDate={startDate}
                   endDate={endDate}
-                  placeholderText="Click to select a year"
+                  placeholderText={selectYearText}
                   maxDate={new Date() && endDate}
                   yearItemNumber={12}
                   autoComplete="off"
                 />
               </div>
               <div className="yearPicker">
-                Search Year To
+                {t("searchPage.searchTo")}
                 <DatePicker
                   {...register("year_end")}
                   dateFormat="yyyy"
@@ -173,7 +176,7 @@ const SearchPage = () => {
                   startDate={startDate}
                   endDate={endDate}
                   minDate={startDate}
-                  placeholderText="Click to select a year"
+                  placeholderText={selectYearText}
                   maxDate={new Date()}
                   yearItemNumber={12}
                   autoComplete="off"
@@ -184,12 +187,12 @@ const SearchPage = () => {
                 type="button"
                 onClick={clearFilters}
               >
-                Reset filters
-                <img src={resetBtn} alt="reset all filters" />
+                {t("searchPage.reset")}
+                <img src={resetBtn} alt={resetAltText} />
               </button>
               <button className="filters-submit-btn" type="submit">
-                Search
-                <img src={searchBtn} alt="search button" />
+                {t("searchPage.search")}
+                <img src={searchBtn} alt={searchAltText} />
               </button>
             </div>
           </section>

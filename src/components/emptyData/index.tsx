@@ -1,19 +1,20 @@
+import { useTranslation } from "react-i18next";
 import blackHole from "../../assets/images/blackHole.png";
 import "./styles.scss";
 
 const EmptyData: React.FC = () => {
+  const { t } = useTranslation();
+  const altText = t("emptyData.alt");
+
   return (
     <div className="emptyData">
-      <div className="emptyData__title">Nothing was found for your query </div>
+      <div className="emptyData__title">{t("emptyData.title")}</div>
       <div className="emptyData__descr">
-        There are no results matching the currently selected filter combination.
-        You can <a href="/">reset the filters</a> and try again.
+        {t("emptyData.description1")}
+        <a href="/">{t("emptyData.link")}</a>
+        {t("emptyData.description2")}
       </div>
-      <img
-        className="emptyData__images"
-        src={blackHole}
-        alt="black hole images"
-      />
+      <img className="emptyData__images" src={blackHole} alt={altText} />
     </div>
   );
 };

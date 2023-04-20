@@ -4,6 +4,7 @@ import { selectPageSize } from "../../config/selectPageSige";
 import { v4 as uuidv4 } from "uuid";
 import "./styles.scss";
 import { IPagination } from "../../interfases/pagination";
+import { useTranslation } from "react-i18next";
 
 const Pagination: React.FC<IPagination> = ({
   setCurentPage,
@@ -14,6 +15,8 @@ const Pagination: React.FC<IPagination> = ({
   isLargePagination,
 }) => {
   const resultPageCount = totalPage > 10000 ? 10000 : totalPage;
+
+  const { t } = useTranslation();
 
   const handlePageClick = (event: { selected: number }) => {
     setCurentPage(event.selected + 1);
@@ -41,7 +44,7 @@ const Pagination: React.FC<IPagination> = ({
               </option>
             ))}
           </select>
-          Select Page Size
+          {t("paginate.selectSize")}
         </div>
       )}
       <div className="paginate__paginate">
@@ -64,7 +67,7 @@ const Pagination: React.FC<IPagination> = ({
 
       {isLargePagination && (
         <div className="paginate__input">
-          Select page
+          {t("paginate.selectPage")}
           <input
             type="number"
             autoComplete="off"
@@ -72,7 +75,8 @@ const Pagination: React.FC<IPagination> = ({
             onBlur={(event) => setCurentPage(+event.target.value)}
             min="0"
           />
-          Showing {Math.floor(resultPageCount / +pageSize)} results
+          {t("paginate.showing")} {Math.floor(resultPageCount / +pageSize)}
+          {t("paginate.results")}
         </div>
       )}
     </div>

@@ -4,6 +4,7 @@ import "./styles.scss";
 
 const LanguageToggler: React.FC = () => {
   const { i18n } = useTranslation();
+  const { t } = useTranslation();
   const [currentLanguage, setCurrentLanguage] = useState(i18n.language);
 
   const handleLanguageChange = (event: { target: { value: any } }) => {
@@ -23,7 +24,7 @@ const LanguageToggler: React.FC = () => {
   return (
     <div className="toggler">
       <label className="toggler__label" htmlFor="language">
-        Language:
+        {t("toggler")}
       </label>
       <select
         className="toggler__select"
@@ -35,10 +36,13 @@ const LanguageToggler: React.FC = () => {
         }}
       >
         <option className="toggler__select-GB" value="en">
-          English 🇬🇧
+          {t("eng")} 🇬🇧
         </option>
         <option className="toggler__select-option" value="pl">
-          Polish 🇵🇱
+          {t("pln")} 🇵🇱
+        </option>
+        <option className="toggler__select-option" value="it">
+          {t("it")} 🇮🇹
         </option>
       </select>
     </div>

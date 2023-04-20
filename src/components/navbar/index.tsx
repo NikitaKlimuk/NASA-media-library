@@ -1,8 +1,11 @@
+import { useTranslation } from "react-i18next";
 import NASAlogoSm from "../../assets/logo/NASA_logo_sm.svg";
 import LanguageToggler from "../languageToggler";
 import "./styles.scss";
 
 const Navbar: React.FC = () => {
+  const { t } = useTranslation();
+
   return (
     <nav className="navbar navbar-expand-lg navbar-expand">
       <a className="navbar-brand" href="/">
@@ -23,22 +26,22 @@ const Navbar: React.FC = () => {
         <ul className="navbar-nav">
           <li className="nav-item">
             <a className="nav-link active" aria-current="page" href="/">
-              Image Gallery
+              {t("navbar.gallery")}
             </a>
           </li>
           <li className="nav-item">
             <a className="nav-link disabled" href="/">
-              Missions
+              {t("navbar.missions")}
             </a>
           </li>
           <li className="nav-item">
             <a className="nav-link disabled" href="/">
-              News
+              {t("navbar.news")}
             </a>
           </li>
           <li className="nav-item">
             <a className="nav-link disabled" href="/">
-              Events
+              {t("navbar.events")}
             </a>
           </li>
         </ul>

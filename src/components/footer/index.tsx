@@ -1,13 +1,17 @@
 import { v4 as uuidv4 } from "uuid";
 import { footerOptions } from "../../config/footerOptions";
+import { useTranslation } from "react-i18next";
 import NasaLogoFooter from "../../assets/logo/NASA_logo_lg.svg";
 import "./styles.scss";
 
 const Footer: React.FC = () => {
+  const { t } = useTranslation();
+  const altLogo = t("footer.altLogo");
+
   return (
     <footer className="footer">
       <div className="footer__logo">
-        <img src={NasaLogoFooter} alt="NASA logo" />
+        <img src={NasaLogoFooter} alt={altLogo} />
       </div>
       <div className="footer__links">
         {footerOptions.map((item: { value: string; link: string }) => {
@@ -19,13 +23,10 @@ const Footer: React.FC = () => {
         })}
       </div>
       <div className="footer__text">
-        <p>
-          JPL is a federally funded research and development center managed for
-          NASA by Caltech.
-        </p>
+        <p>{t("footer.description")}</p>
         <div className="footer__text-author">
-          <p>Develop: Mikita Klimuk</p>
-          <p>Designed: Ilya Grigorenko</p>
+          <p>{t("footer.develop")}: Mikita Klimuk</p>
+          <p>{t("footer.designed")}: Ilya Grigorenko</p>
         </div>
       </div>
     </footer>

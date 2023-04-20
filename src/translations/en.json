@@ -1,1 +1,57 @@
-[]
+{
+  "navbar": {
+    "gallery": "Image Gallery",
+    "missions": "Missions",
+    "news": "News",
+    "events": "Events"
+  },
+  "searchPage": {
+    "title": "View images from all parts of the solar system",
+    "description": "You can find photos of planets, satellites, asteroids, comets, and other space objects, as well as illustrations and renderings based on scientific data.",
+    "search": "Search",
+    "searchPlaseholder": "Search among all photos",
+    "topics": "Trending topics",
+    "topic": "Topic",
+    "earth": "Earth",
+    "moon": "Moon",
+    "sun": "Sun",
+    "mars": "Mars",
+
+    "searchFrom": "Search Year From",
+    "searchTo": "Search Year To",
+    "searchAlt": "search button",
+    "selectYear": "Click to select a year",
+    "reset": "Reset filters",
+    "resetAlt": "reset all filters"
+  },
+  "paginate": {
+    "selectSize": "Select Page Size",
+    "selectPage": "Select page",
+    "showing": "Showing ",
+    "results": " results"
+  },
+  "footer": {
+    "altLogo": "NASA logo",
+    "description": "JPL is a federally funded research and development center managed for NASA by Caltech.",
+    "develop": "Develop",
+    "designed": "Designed"
+  },
+  "toggler": "Language:",
+  "eng": "English",
+  "pln": "Polish",
+  "it": "Italian",
+
+  "notFound": {
+    "title": "Unfortunately, there is nothing at this address",
+    "link": "Back to home page",
+    "imgAlt": "not found images"
+  },
+
+  "emptyData": {
+    "title": "Nothing was found for your query",
+    "description1": "There are no results matching the currently selected filter combination. You can ",
+    "description2": " and try again.",
+    "link": "reset the filters",
+    "alt": "black hole images"
+  }
+}

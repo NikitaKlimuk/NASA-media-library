@@ -1,1 +1,56 @@
-[]
+{
+  "navbar": {
+    "gallery": "Galeria zdjęć",
+    "missions": "Misje",
+    "news": "Aktualności",
+    "events": "Wydarzenia"
+  },
+  "searchPage": {
+    "title": "Zobacz zdjęcia ze wszystkich części Układu Słonecznego",
+    "description": "Możesz znaleźć zdjęcia planet, satelitów, asteroid, komet oraz innych obiektów kosmicznych, a także ilustracje i renderowania oparte na danych naukowych.",
+    "search": "Szukaj",
+    "searchPlaseholder": "Szukaj wśród wszystkich zdjęć",
+    "topics": "Tematy na czasie",
+    "topic": "Temat",
+    "earth": "Ziemia",
+    "moon": "Księżyc",
+    "sun": "Słońce",
+    "mars": "Mars",
+    "searchFrom": "Szukaj od roku",
+    "searchTo": "Szukaj do roku",
+    "searchAlt": "przycisk szukaj",
+    "selectYear": "Kliknij, aby wybrać rok",
+    "reset": "Resetuj filtry",
+    "resetAlt": "resetuj wszystkie filtry"
+  },
+  "paginate": {
+    "selectSize": "Wybierz rozmiar strony",
+    "selectPage": "Wybierz stronę",
+    "showing": "Wyświetlono ",
+    "results": " wyników"
+  },
+  "footer": {
+    "altLogo": "Logo NASA",
+    "description": "JPL to federalne centrum badawczo-rozwojowe zarządzane dla NASA przez Caltech.",
+    "develop": "Rozwój",
+    "designed": "Projektowanie"
+  },
+  "toggler": "Język:",
+  "eng": "Angielski",
+  "pln": "Polski",
+  "it": "Włoski",
+
+  "notFound": {
+    "title": "Niestety, pod tym adresem nie ma nic",
+    "link": "Powrót do strony głównej",
+    "imgAlt": "obrazy nie znaleziono"
+  },
+
+  "emptyData": {
+    "title": "Nie znaleziono wyników dla twojego zapytania",
+    "description1": "Brak wyników pasujących do obecnie wybranych kombinacji filtrów. Możesz ",
+    "description2": " i spróbować ponownie.",
+    "link": "zresetować filtry",
+    "alt": "obrazy czarnej dziury"
+  }
+}

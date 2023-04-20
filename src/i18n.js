@@ -3,6 +3,7 @@ import { initReactI18next } from "react-i18next";
 
 import enTranslation from "./translations/en.json";
 import plTranslation from "./translations/pl.json";
+import itTranslation from "./translations/it.json";
 
 i18n.use(initReactI18next).init({
   lng: "en",
@@ -17,6 +18,9 @@ i18n.use(initReactI18next).init({
     },
     pl: {
       translation: plTranslation,
+    },
+    it: {
+      translation: itTranslation,
     },
   },
 });

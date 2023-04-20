@@ -1,16 +1,18 @@
+import { useTranslation } from "react-i18next";
 import notFound from "../../assets/images/notFound.png";
 import "./styles.scss";
 
 const NotFoundPage: React.FC = () => {
+  const { t } = useTranslation();
+  const altText = t("notFound.title");
+
   return (
     <div className="notFound">
-      <div className="notFound__title">
-        Unfortunately, there is nothing at this address
-      </div>
+      <div className="notFound__title">{t("notFound.title")}</div>
       <a className="notFound__link" href="/">
-        Back to home page
+        {t("notFound.link")}
       </a>
-      <img className="notFound__img" src={notFound} alt="not found images" />
+      <img className="notFound__img" src={notFound} alt={altText} />
     </div>
   );
 };

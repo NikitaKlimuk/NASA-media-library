@@ -1,0 +1,56 @@
+{
+  "navbar": {
+    "gallery": "Galleria di immagini",
+    "missions": "Missioni",
+    "news": "Notizie",
+    "events": "Eventi"
+  },
+  "searchPage": {
+    "title": "Visualizza immagini da tutte le parti del sistema solare",
+    "description": "Puoi trovare foto di pianeti, satelliti, asteroidi, comete e altri oggetti spaziali, così come illustrazioni e rendering basati su dati scientifici.",
+    "search": "Cerca",
+    "searchPlaseholder": "Cerca tra tutte le foto",
+    "topics": "Trending topics",
+    "topic": "Argomento",
+    "earth": "Terra",
+    "moon": "Luna",
+    "sun": "Sole",
+    "mars": "Marte",
+    "searchFrom": "Cerca a partire dall'anno",
+    "searchTo": "Cerca fino all'anno",
+    "searchAlt": "pulsante di ricerca",
+    "selectYear": "Fai clic per selezionare un anno",
+    "reset": "Azzera filtri",
+    "resetAlt": "azzera tutti i filtri"
+  },
+  "paginate": {
+    "selectSize": "Seleziona la dimensione della pagina",
+    "selectPage": "Seleziona la pagina",
+    "showing": "Visualizzazione di ",
+    "results": " risultati"
+  },
+  "footer": {
+    "altLogo": "Logo della NASA",
+    "description": "JPL è un centro di ricerca e sviluppo finanziato dal governo federale gestito per la NASA dal Caltech.",
+    "develop": "Sviluppato da",
+    "designed": "Progettato da"
+  },
+  "toggler": "Lingua:",
+  "eng": "Inglese",
+  "pln": "Polacco",
+  "it": "Italiano",
+
+  "notFound": {
+    "title": "Sfortunatamente, non c'è niente a questo indirizzo",
+    "link": "Torna alla pagina iniziale",
+    "imgAlt": "immagini non trovate"
+  },
+
+  "emptyData": {
+    "title": "Nessun risultato trovato per la tua ricerca",
+    "description1": "Non ci sono risultati che corrispondono alla combinazione di filtri attualmente selezionata. Puoi ",
+    "description2": " e riprovare.",
+    "link": "azzera i filtri",
+    "alt": "immagini di buchi neri"
+  }
+}
