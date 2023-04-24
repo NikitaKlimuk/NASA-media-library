@@ -20,7 +20,7 @@ This project uses the following technologies:
 `React Paginate`
 `React i18n`
 `Jest`
-`React Testing Library `
+`React Testing Library`
 `UUID`
 
 ## Features
@@ -49,3 +49,18 @@ This project includes basic tests to ensure proper functionality. To run tests, 
 
 ## Credits
 This project was created by Mikita Klimuk. Special thanks to NASA for providing the public API and Ilya Grigorenko for designing the project.
+
+## Preview 
+### Main page with filters<img width="1680" alt="main page with filters" src="https://user-images.githubusercontent.com/44801567/233935432-871c4faa-10d4-49f3-904d-c2ccec336cd5.png">
+
+### Details page (whith selected card)
+<img width="1644" alt="details page" src="https://user-images.githubusercontent.com/44801567/233935876-389c2340-2128-433b-b571-9badaa4913bf.png">
+
+### Yerspicker styles
+<img width="569" alt="yearspicker style" src="https://user-images.githubusercontent.com/44801567/233936111-16b61c79-5955-42c0-a080-eede3ea3002c.png">
+
+### Mobile optimization
+<img width="323" alt="main page mobile" src="https://user-images.githubusercontent.com/44801567/233936490-df09cec1-8fd7-4779-a6bc-9bacd94d2365.png">
+<img width="514" alt="details page mobile" src="https://user-images.githubusercontent.com/44801567/233936243-80351760-a10f-4a3e-9f27-a16c55f12901.png">
+
+
