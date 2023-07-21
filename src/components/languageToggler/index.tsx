@@ -6,6 +6,7 @@ const LanguageToggler: React.FC = () => {
   const { i18n } = useTranslation();
   const { t } = useTranslation();
   const [currentLanguage, setCurrentLanguage] = useState(i18n.language);
+  const language = localStorage.getItem("language");
 
   const handleLanguageChange = (event: { target: { value: any } }) => {
     const language = event.target.value;
@@ -14,12 +15,11 @@ const LanguageToggler: React.FC = () => {
   };
 
   useEffect(() => {
-    const language = localStorage.getItem("language");
     if (language && currentLanguage !== language) {
       i18n.changeLanguage(language);
       setCurrentLanguage(language);
     }
-  }, [currentLanguage, i18n]);
+  }, [currentLanguage, language, i18n]);
 
   return (
     <div className="toggler">

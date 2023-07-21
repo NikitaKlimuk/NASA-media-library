@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { v4 as uuidv4 } from "uuid";
 import { useForm, SubmitHandler } from "react-hook-form";
 import resetBtn from "../../assets/icons/trash.svg";
 import searchBtn from "../../assets/icons/search-normal.svg";
@@ -225,7 +224,7 @@ const SearchPage = () => {
                           {NasaData?.map((item: any) => {
                             return (
                               <Card
-                                key={uuidv4()}
+                                key={item.nasaID}
                                 thumbnail={item.thumbnail}
                                 description={item.description}
                                 title={item.title}

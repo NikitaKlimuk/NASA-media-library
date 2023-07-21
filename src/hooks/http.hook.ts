@@ -1,7 +1,9 @@
 import { useState, useCallback } from "react";
 
 export const useHttp = () => {
-  const [process, setProcess] = useState("waiting");
+  const [process, setProcess] = useState<
+    "waiting" | "loading" | "error" | "finaly"
+  >("waiting");
 
   const request = useCallback(
     async (
